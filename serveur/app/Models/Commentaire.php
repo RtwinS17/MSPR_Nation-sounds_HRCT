@@ -18,9 +18,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $Texte
  * @property int $Note
  * @property Carbon $Date
- * 
- * @property Utilisateur $utilisateur
- * @property Concert $concert
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
  *
  * @package App\Models
  */
@@ -28,7 +27,6 @@ class Commentaire extends Model
 {
 	protected $table = 'commentaire';
 	protected $primaryKey = 'Id';
-	public $timestamps = false;
 
 	protected $casts = [
 		'Id_user' => 'int',
@@ -44,14 +42,4 @@ class Commentaire extends Model
 		'Note',
 		'Date'
 	];
-
-	public function utilisateur()
-	{
-		return $this->belongsTo(Utilisateur::class, 'Id_user');
-	}
-
-	public function concert()
-	{
-		return $this->belongsTo(Concert::class, 'Id_concert');
-	}
 }
