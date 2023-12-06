@@ -1,17 +1,21 @@
-:root {
---info-success: #23a47b;
---info-none: #fafafa;
---info-disabled: #dedede;
---info-alert: #f25652;
---info-warning: #dc7208;
---info-danger: #C81414;
-}
+@tailwind base;
 
-.dark-theme {
-    --info-success: #114b38;
-    --info-none: #222222;
-    --info-disabled: #4b4b4b;
-    --info-alert: #61211f;
-    --info-warning: #613203;
-    --info-danger: #670f0f;
+@layer base {
+    :root {
+        --info-success: #23a47b;
+        --info-none: #fafafa;
+        --info-disabled: #dedede;
+        --info-alert: #f25652;
+        --info-warning: #dc7208;
+        --info-danger: #C81414;
+    }
+
+    .dark-theme {
+        --info-success: #114b38;
+        --info-none: #222222;
+        --info-disabled: #4b4b4b;
+        --info-alert: #61211f;
+        --info-warning: #613203;
+        --info-danger: #670f0f;
+    }
 }
