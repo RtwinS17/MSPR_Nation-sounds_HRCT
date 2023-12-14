@@ -1,6 +1,3 @@
-@tailwind base;
-
-@layer base {
     :root {
 
         /* Opacity section */
@@ -19,7 +16,7 @@
         --secondary-orange: #FB8500;
         --secondary-yellow: #FFB703;
 
-        --secondary--orange-border: #ee7e00;
+        --secondary-orange-border: #ee7e00;
         --secondary-yellow-border: #f5af00;
 
         /* Text section */
@@ -53,6 +50,8 @@
         --black-800: #464646;
         --black-900: #4e4e4e;
         --black-950: #555555;
+
+        --black-border: #292929;
     }
 
     .dark-theme {
@@ -109,5 +108,6 @@
         --black-900: #4e4e4e;
         --black-950: #555555;
 
+        --black-border: #292929;
+
     }
-}

@@ -1,6 +1,7 @@
 @tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@layer base {
     :root {
         /* BTN primary */
         --btn-primary-bg: #0f415a;
@@ -132,4 +133,3 @@
 
         --btn-accent-text: #CECABA;
     }
-}

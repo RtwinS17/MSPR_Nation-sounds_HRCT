@@ -1,6 +1,3 @@
-@tailwind base;
-
-@layer base {
     :root {
         --info-success: #23a47b;
         --info-none: #fafafa;
@@ -18,4 +15,3 @@
         --info-warning: #613203;
         --info-danger: #670f0f;
     }
-}

@@ -1,24 +1,24 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 body {
+  background-image: linear-gradient(135deg, var(--secondary-orange), var(--secondary-yellow));
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: linear-gradient(135deg, var(--main), var(--main-dark));
+  color: var(--main-text);
 }
 
-header {
-  background-image: linear-gradient(135deg, var(--secondary-orange), var(--secondary-yellow));
-  color: var(--main-Xdark);
-
+.main-container {
+  width: 85%;
+  overflow-x: hidden;
+  overflow-y: sc;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none;
 }
 
-footer {
-  background-image: linear-gradient(135deg, var(--secondary-yellow), var(--secondary-orange));
-  color: var(--main-Xdark);
+.main-container::-webkit-scrollbar {
+  display: none;
 }

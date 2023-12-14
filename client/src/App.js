@@ -1,41 +1,35 @@
 import React from 'react';
-import Map from './composants/Cartes/map';
-
+import NavBarMobile from './composants/NavBar_Components/NavBar_Mobile/navBarMobile.component';
+import { NavBarDesktop } from './composants/NavBar_Components/NavBar_Desktop/navBarDesktop.component';
 const App = () => {
   return (
-   
-      <div className='flex flex-col h-[100VH]'>
 
-        <header id='header-section' className='w-full h-[8%] fixed items-center flex justify-between p-3'>
-          <div>
-            <img alt='Logo App'></img>
-          </div>
-
-          <div>
-            Nation-sounds
-          </div>
-
-          <ul>
-            <li>Events</li>
-          </ul>
-
-        </header>
-
-        <div id='main-content' className='w-full h-full flex flex-col md:flex-row justify-around items-center pt-6'>
-          <div className='h-[200px] w-[80%] md:w-[50%] md:h-[80%] text-center'> <Map></Map> </div>
-          <div className='h-[100px]'> Event </div>
-          <div className='h-[100px]'> Info </div>
-
+    <>
+      <div className='h-screen w-screen'>
+       {deviceUSed === 'mobile' ? <NavBarMobile/> : <NavBarDesktop/>}
+        <div className='main-container fixed ml-6 h-screen flex flex-col sm:ml-[100px]'>
         </div>
-
-
-        <footer id='footer-section' className='w-full h-[10%] flex justify-between items-center p-3 mt-auto'>
-          <div id='contact'> Contacts </div>
-          <div id='partenaire-footer'> Partenaires </div>
-        </footer>
       </div>
+    </>
 
   );
 };
 
 export default App;
+
+let deviceUSed = '';
+
+function getScreenWidth(){
+  return window.innerWidth
+}
+
+function getDeviceScreenSize(){
+  let scWidth = getScreenWidth()
+if (scWidth) {
+  if (+scWidth <= 640) {
+    deviceUSed = 'mobile'
+  } else deviceUSed = 'desktop'
+} else return ''
+}
+
+getDeviceScreenSize()
