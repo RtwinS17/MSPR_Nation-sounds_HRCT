@@ -3,6 +3,7 @@
 @tailwind utilities;
 
     :root {
+        --rounded : 2rem;
         /* BTN primary */
         --btn-primary-bg: #0f415a;
         --btn-primary-border: #0e3d55;
