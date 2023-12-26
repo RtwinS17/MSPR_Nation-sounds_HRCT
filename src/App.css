@@ -1,0 +1,45 @@
+
+/* Styles pour le menu hamburger */
+.hamburger {
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 2rem;
+  height: 2rem;
+}
+
+.hamburger-line {
+  width: 2rem;
+  height: 0.25rem;
+  background: #023047; /* Changez la couleur selon votre design */
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.menu {
+  display: none;
+}
+
+.menu.show {
+  display: inline-block;
+ 
+}
+
+.rotate-45 {
+  transform: rotate(45deg);
+}
+
+.-rotate-45 {
+  transform: rotate(-45deg);
+}
+
+.translate-y-1.5 {
+  transform: translateY(10rem);
+}
+
+.-translate-y-1.5 {
+  transform: translateY(-10rem);
+}
