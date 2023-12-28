@@ -11,9 +11,10 @@ use App\Http\Controllers\PartenaireController;
 use App\Http\Controllers\PreferenceController;
 use App\Http\Controllers\SceneController;
 use App\Http\Controllers\UtilisateurController;
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Authentification;
+use App\Http\Controllers\GeolocationController;
 
-
+//Routes CRUD modèle Eloquent Laravel
 Route::resources([
     'alertes' => AlerteController::class,
     'commentaires' => CommentaireController::class,
@@ -24,11 +25,17 @@ Route::resources([
     'preferences' => PreferenceController::class,
     'scenes' => SceneController::class,
     'utilisateurs' => UtilisateurController::class,
+    'geo' => GeolocationController::class,
     
 ]);
 
+//Routes Wordpress
+Route::prefix('wordpress')->group(function () {
+    Route::get('/posts', 'WordPressController@getPosts');
+});
 
 
+//Route Middleware
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
