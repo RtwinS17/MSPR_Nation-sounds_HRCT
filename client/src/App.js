@@ -11,9 +11,6 @@ const App = () => {
         {deviceUsed === 'mobile' ? <NavBarMobile /> : <NavBarDesktop />}
         <div className="main-container fixed ml-6 h-screen flex flex-col mt-12 sm:ml-[100px]">
           <HomeCard />
-          <div className="flex items-center justify-center h-1/2">
-            <Map />
-          </div>
         </div>
       </div>
     </>
