@@ -12,6 +12,9 @@ const App = () => {
         <div className="main-container fixed ml-6 h-screen flex flex-col mt-12 sm:ml-[100px]">
           <HomeCard />
         </div>
+          <div className='flex justify-center sm:m-8'>
+            <Map />
+          </div>
       </div>
     </>
   );
