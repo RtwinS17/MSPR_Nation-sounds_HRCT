@@ -1,21 +1,17 @@
 .icon-user-logIn{
     border-radius: 3rem;
-    background-color:var(--white-100);
   }
 
   .icon-home-navBar {
     border-radius: 3rem;
     overflow: hidden;
-    background-color: var(--white-100);
   }
 
   .burger-icon {
-    background-color: var(--white-100);
   }
 
   .leftArrow-icon {
     overflow: hidden;
-    background-color: var(--white-100);
     border-radius: 3rem;
     width: 30px;
   }
