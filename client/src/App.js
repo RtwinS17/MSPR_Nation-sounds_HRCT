@@ -1,9 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import EventList from './composants/EventList';
-import EventForm from './composants/EventForm';
-import ArtistList from './composants/ArtistList';
-import ArtistForm from './composants/ArtistForm';
+import EventList from './composants/Formulaires/EventList';
+import EventForm from './composants/Formulaires/EventForm';
+import './App.css';
+import WordPressPost from './composants/WordPressPost';
+import Map from './composants/Cartes/map';
+import SomePageComponent from './composants/SomePageComponent';
+
+
 
 const App = () => {
   return (
@@ -12,11 +16,13 @@ const App = () => {
         <li><Link to="/events">Événements</Link></li>
         <li><Link to="/artists">Artistes</Link></li>
       </ul>
+      <WordPressPost />
+      <SomePageComponent />
+      <Map />
       <Routes>
+       
         <Route path="/events" element={<EventList />} />
         <Route path="/events/add" element={<EventForm />} />
-        <Route path="/artists" element={<ArtistList />} />
-        <Route path="/artists/add" element={<ArtistForm />} />
       </Routes>
     </Router>
   );
