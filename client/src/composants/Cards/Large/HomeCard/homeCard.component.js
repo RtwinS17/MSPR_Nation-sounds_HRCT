@@ -8,7 +8,7 @@ import "./../../cards.style.css";
 export const MainContent = ({children=""}) => {
     return (
         <main className="w-screen h-screen flex justify-center align-middle">
-            <div className="test">
+            <div className="mainContent-container">
             {children}
             </div>
         </main>
