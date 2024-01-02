@@ -28,7 +28,8 @@ const App = () => {
         <ThemeBtn />
         <Diaporamahome />
         <HomeLogo/>
-        <MainContent/>
+        <MainContent>
+        </MainContent>
       </div>
     </>
   );
