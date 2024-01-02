@@ -5,12 +5,13 @@ import "./../../cards.style.css";
 
 
 
-export const HomeCard = () => {
+export const MainContent = ({children=""}) => {
     return (
-        <div>
-           
-            
-        </div>
-        
+        <main className="w-screen h-screen flex justify-center align-middle">
+            <div className="test">
+            {children}
+            </div>
+        </main>
+
     )
 }
