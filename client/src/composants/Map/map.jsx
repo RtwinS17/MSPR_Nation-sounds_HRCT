@@ -1,72 +1,112 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
-import 'leaflet-routing-machine';
-import 'leaflet-routing-machine/dist/leaflet-routing-machine.css';
 import './map.style.css';
-import customIconImg from './location-icon.svg';
-
-let routingControl = null; 
+import locationIcon from './location-icon.svg';
+import toiletIcon from './toilets-icon.svg';
+import restaurationIcon from './restaurant-icon.svg';
+import userIcon from './user-icon.svg';
+import medicalIcon from './medical-icon.svg';
 
 const Map = () => {
-  const mapCenter = [48.834, 2.451];
-  const mapZoom = 13;
-  const mapRef = useRef(null); 
+  const mapCenter = [48.83040876690479, 2.441774125391102];
+  const mapZoom = 16;
 
-  const customIcon = new L.Icon({
-    iconUrl: customIconImg,
-    iconSize: [32, 32],
-    iconAnchor: [16, 32],
-    popupAnchor: [0, -32],
-  });
-
-  const LocationMarker = () => {
-    const [position, setPosition] = useState(null);
-
-    const map = useMap();
-
-    useEffect(() => {
-      map.locate().on('locationfound', function (e) {
-        setPosition(e.latlng);
-        map.flyTo(e.latlng, map.getZoom());
-      });
-    }, [map]);
-
-    return position === null ? null : (
-      <Marker position={position} icon={customIcon}>
-        <Popup>Vous êtes ici</Popup>
-      </Marker>
-    );
+  const iconMappings = {
+    scene: new L.Icon({
+      iconUrl: locationIcon,
+      iconSize: [32, 32],
+      iconAnchor: [16, 32],
+      popupAnchor: [0, -32],
+    }),
+    restauration: new L.Icon({
+      iconUrl: restaurationIcon,
+      iconSize: [32, 32],
+      iconAnchor: [16, 32],
+      popupAnchor: [0, -32],
+    }),
+    toilets: new L.Icon({
+      iconUrl: toiletIcon,
+      iconSize: [32, 32],
+      iconAnchor: [16, 32],
+      popupAnchor: [0, -32],
+    }),
+    user: new L.Icon({
+      iconUrl: userIcon,
+      iconSize: [32, 32],
+      iconAnchor: [16, 32],
+      popupAnchor: [0, -32],
+    }),
+    medical: new L.Icon({
+      iconUrl: medicalIcon,
+      iconSize: [32, 32],
+      iconAnchor: [16, 32],
+      popupAnchor: [0, -32],
+    }),
   };
 
-  const handleNavigation = (destinationCoordinates) => {
-    const map = mapRef.current;
-    const currentPosition = map.getCenter();
-
-    if (routingControl != null) {
-      map.removeControl(routingControl);
-    }
-
-    routingControl = L.Routing.control({
-      waypoints: [
-        L.latLng(currentPosition.lat, currentPosition.lng),
-        L.latLng(destinationCoordinates[0], destinationCoordinates[1]),
-      ],
-    }).addTo(map);
-  };
+  // const LocationMarker = () => {
+  //   const [position, setPosition] = useState(null);
+  //   const map = useMap();
+  
+  //   useEffect(() => {
+  //     map.locate().on('locationfound', function (e) {
+  //       setPosition(e.latlng);
+  //       map.flyTo(e.latlng, map.getZoom());
+  //     });
+  //   }, [map]);
+  
+  //   return position === null ? null : (
+  //     <Marker position={position} icon={iconMappings.user}>
+  //       <Popup>Vous êtes ici</Popup>
+  //     </Marker>
+  //   );
+  // };  
 
   const festivalLocations = [
-    { id: 1, title: 'Scène principale', coordinates: [48.8325, 2.4492] },
-    { id: 2, title: 'Scène A', coordinates: [48.834, 2.451] },
-    { id: 3, title: 'Scène B', coordinates: [48.831, 2.4525] },
-    { id: 4, title: 'Buvette - Restauration', coordinates: [48.8305, 2.4485] },
-    { id: 5, title: 'Toilettes', coordinates: [48.8345, 2.447] },
+    {
+      id: 1,
+      title: 'Scène principale',
+      coordinates: [48.831448433324354, 2.4423541971134033],
+      type: 'scene',
+    },
+    { id: 2, title: 'Scène A', coordinates: [48.82994045936849, 2.4401758873799015], type: 'scene' },
+    { id: 3, title: 'Scène B', coordinates: [48.828849351493574, 2.4426331468446243], type: 'scene' },
+    {
+      id: 4,
+      title: 'Buvette - Restauration',
+      coordinates: [48.8308128007656, 2.4407985159200556],
+      type: 'restauration',
+    },
+    {
+      id: 5,
+      title: 'Buvette - Restauration',
+      coordinates: [48.83132798831075, 2.443906611959251],
+      type: 'restauration',
+    },
+    {
+      id: 5,
+      title: 'Toilettes',
+      coordinates: [48.83017588289182, 2.443949825802048],
+      type: 'toilets',
+    },
+    {
+      id: 6,
+      title: 'Toilettes',
+      coordinates: [48.8288103903128, 2.440708787592244],
+      type: 'toilets',
+    },
+    {
+      id: 6,
+      title: 'Premiers secours',
+      coordinates: [48.829983862746445, 2.4419079717298717],
+      type: 'medical',
+    }
   ];
 
   return (
     <MapContainer
-      ref={mapRef} 
-      className='shadow-md m-2'
+      className="shadow-md m-2"
       center={mapCenter}
       zoom={mapZoom}
       scrollWheelZoom={false}
@@ -76,22 +116,17 @@ const Map = () => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       {festivalLocations.map((location, index) => (
-        <Marker key={index} position={location.coordinates} icon={customIcon}>
+        <Marker
+          key={index}
+          position={location.coordinates}
+          icon={iconMappings[location.type]}
+        >
           <Popup>
-            <div className="text-center">
-              {location.title}
-              <br />
-              <button
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                onClick={() => handleNavigation(location.coordinates)}
-              >
-                Y aller
-              </button>
-            </div>
+            <div className="text-center">{location.title}</div>
           </Popup>
         </Marker>
       ))}
-      <LocationMarker />
+      {/* <LocationMarker /> */}
     </MapContainer>
   );
 };
