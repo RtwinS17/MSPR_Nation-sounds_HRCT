@@ -5,7 +5,7 @@ import { HomeCard } from './composants/Cards/Large/HomeCard/homeCard.component';
 import { useSelector } from 'react-redux';
 import { ThemeBtn } from './composants/Molecule/Button/themeChanger.btn';
 import  Diaporamahome  from './composants/Cards/Large/HomeCard/diaporamaHome';
-import  HomeLogo  from './composants/Molecule/Icon/homeLogo';
+import { ArtistCard } from './composants/Cards/Large/HomeCard/artistCard.component';
 
 const App = () => {
   let [screenWidth, setScreenWidth] = useState(window.innerWidth)
@@ -27,10 +27,10 @@ const App = () => {
        {deviceUsed === 'mobile' ? <NavBarMobile/> : <NavBarDesktop/>}
  <HomeCard />
           <ThemeBtn />
-        <div className='fixed ml-6 h-screen flex flex-col mt-12 sm:ml-[100px]'>
+        <div className='fixed h-screen flex flex-col mt-12 '>
           <Diaporamahome />
-          <HomeLogo /> 
-          <HomeCard />
+          
+          <ArtistCard />
         </div>
       </div>
     </>
