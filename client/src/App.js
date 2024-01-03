@@ -30,7 +30,7 @@ const App = () => {
         <div className='fixed h-screen flex flex-col mt-12 '>
           <Diaporamahome />
           
-          <ArtistCard />
+         
         </div>
       </div>
     </>
