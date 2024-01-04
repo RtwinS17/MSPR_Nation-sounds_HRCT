@@ -3,6 +3,9 @@ import HomeIcon from '../../Molecule/Icon/homePicture-component';
 import AccountIcon from '../../Molecule/Icon/accountPicture-component';
 import './navBarMobile.style.css';
 import BurgerIcon from '../../Molecule/Icon/burgerIcon-component';
+import FacebookIcon from '../../Molecule/Icon/fbIcon-component';
+import TwitterIcon from '../../Molecule/Icon/xIcon-component';
+import InstagramIcon from '../../Molecule/Icon/instIcon-component';
 
 const NavBarMobile = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -20,14 +23,22 @@ const NavBarMobile = () => {
           <BurgerIcon />
         </div>
       </div>
-      <div className={`flex fixed top-0 right-0 h-full ${isMenuOpen ? 'w-[40%]' : 'w-0'} z-10 transition-width rounded-l-3xl duration-500 ease-in-out navBarMob`}>
-        <ul className='navBarMob-li '>
+      <div className={`flex flex-col fixed top-0 right-0 h-full ${isMenuOpen ? 'w-[40%]' : 'w-0'} z-10 transition-width rounded-l-3xl duration-500 ease-in-out navBarMob`}>
+        
+         
+          <ul className='navBarMob-li '>
           <li>Billeterie</li>
           <li>Programmation</li>
           <li>Carte</li>
           <li>Infos pratiques</li>
           <li>Partenaires</li>
         </ul>
+        <div className='flex flex-row gap-x-6 mx-auto'>
+          <FacebookIcon />
+          <TwitterIcon />
+          <InstagramIcon />
+        </div>
+         
       </div>
     </>
   )

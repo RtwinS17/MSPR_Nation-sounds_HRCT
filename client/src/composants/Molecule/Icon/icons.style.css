@@ -7,8 +7,6 @@
     overflow: hidden;
   }
 
-  .burger-icon {
-  }
 
   .leftArrow-icon {
     overflow: hidden;
@@ -19,4 +17,22 @@
   .homeLogo {
     width: 40%;
     height: 100%;
+  }
+
+  .fb-icon {
+    width: 30px;
+    height: 30px;
+    color : var(--white-100);
+  }
+
+  .x-icon {
+    width: 30px;
+    height: 30px;
+    color : var(--white-100);
+  }
+
+  .inst-icon {
+    width: 30px;
+    height: 30px;
+    color : var(--white-100);
   }
