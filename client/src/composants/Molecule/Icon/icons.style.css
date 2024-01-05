@@ -36,3 +36,9 @@
     height: 30px;
     color : var(--white-100);
   }
+
+  .xclose-icon {
+    width: 40px;
+    height: 40px;
+    color : var(--white-100);
+  } 

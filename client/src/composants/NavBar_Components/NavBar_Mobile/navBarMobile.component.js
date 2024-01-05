@@ -6,6 +6,7 @@ import BurgerIcon from '../../Molecule/Icon/burgerIcon-component';
 import FacebookIcon from '../../Molecule/Icon/fbIcon-component';
 import TwitterIcon from '../../Molecule/Icon/xIcon-component';
 import InstagramIcon from '../../Molecule/Icon/instIcon-component';
+import XIcon from '../../Molecule/Icon/closeMobNavbarIcon-component';
 
 const NavBarMobile = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,16 +17,15 @@ const NavBarMobile = () => {
 
   return (
     <>
-      <div className='fixed flex justify-between w-[90%] h-[50px] top-[90%] left-6 z-50'>
+      <div className='fixed flex justify-between w-[90%] h-[50px] top-[90%] left-6 z-10'>
         <AccountIcon />
         <HomeIcon />
         <div onClick={toggleMenu}>
           <BurgerIcon />
         </div>
       </div>
-      <div className={`flex flex-col fixed top-0 right-0 h-full ${isMenuOpen ? 'w-[40%]' : 'w-0'} z-10 transition-width rounded-l-3xl duration-500 ease-in-out navBarMob`}>
-        
-         
+      
+      <div className={`flex flex-col fixed top-0 right-0 h-full ${isMenuOpen ? 'w-[50%]' : 'w-0'} z-10 transition-width rounded-l-3xl duration-500 ease-in-out navBarMob`}>
           <ul className='navBarMob-li '>
           <li>Billeterie</li>
           <li>Programmation</li>
@@ -37,6 +37,9 @@ const NavBarMobile = () => {
           <FacebookIcon />
           <TwitterIcon />
           <InstagramIcon />
+        </div>
+        <div onClick={toggleMenu} className='flex justify-end w-full p-10'>
+          <XIcon />
         </div>
          
       </div>
