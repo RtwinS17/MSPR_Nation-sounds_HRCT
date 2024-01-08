@@ -1,8 +1,74 @@
 @import 'leaflet/dist/leaflet.css';
 
+
 .leaflet-container {
   height: 400px;
-  width: 80%;
+  width: auto;
+  z-index: 0;
 }
 
+#filter:active {
+  animation: wobble 1s;
+}
+
+@keyframes wobble {
+  25% { transform: rotate(10deg); }
+  50% { transform: rotate(-10deg); }
+}
+
+#filter {
+  margin: 0 15px;
+  top: 340px;
+  position: relative;
+  border-radius: 3px;
+  background: white;
+  cursor: pointer;
+  padding: 5px;
+  border: 2px solid rgba(0, 0, 0, 0.313);
+}
+
+#filter:hover {
+  background-color: rgba(255, 255, 255, 0.842);
+}
+
+#map-filter-container {
+  position: absolute;
+  z-index: 2;
+  height: 0;
+}
+
+input {
+  appearance: none;
+  cursor: pointer;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid black;
+  position: relative;
+}
+
+input::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75%;
+  height: 75%;
+  border-radius: 50%;
+  background: #023047;
+}
+
+input::before {
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform .3s ease;
+}
+
+input:checked::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+input:checked + label {
+  color: #023047;
+}
 
