@@ -9,7 +9,7 @@ function CloseMenuIcon({id=""}) {
   let theme = useSelector(store => store.theme.value)
   return (
     <div id={id} className='leftArrow-icon w-[50px]'>
-    {theme === 'day' ? <img src={leftArrow} alt="Icon for closing Menu" /> : <img src={leftArrowNight} alt="Icon for closing Menu" />}  
+    {theme === 'day' ? <img className='animate-bounce' src={leftArrow} alt="Icon for closing Menu" /> : <img src={leftArrowNight} alt="Icon for closing Menu" />}  
     </div>
   )
 }

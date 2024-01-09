@@ -6,7 +6,7 @@ import ArtistesCard from "./../../../../ressources/ArtistesCard.jpeg";
 export const ArtistCard = () => {
     return (
     <div>
-       <div className="grid grid-cols-1 gap-8 mt-80 md:grid-cols-4">
+       <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
         <div className="relative bg-white h-10">
             <h1 className="text-xl text-center uppercase font-bold"> Programmation 2024 </h1>
             </div>
