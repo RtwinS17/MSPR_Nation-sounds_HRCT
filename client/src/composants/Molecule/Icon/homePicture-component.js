@@ -1,13 +1,15 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import homeIcon from './../../../ressources/home-1-svgrepo-com.svg';
+import homeIconNight from './../../../ressources/homeIcon_night.svg';
+
 import './icons.style.css';
 
-
 function HomeIcon({id=""}) {
-    // Import result is the URL of your image
+    let theme = useSelector(store => store.theme.value)
     return (
         <div id={id} className='w-[50px] icon-home-navBar'>
-            <img src={homeIcon} alt="Icon for login" />
+         {theme === 'day' ? <img src={homeIcon} alt="Icon for login" /> : <img src={homeIconNight} alt="Icon for login" />}   
         </div>
     )
 }

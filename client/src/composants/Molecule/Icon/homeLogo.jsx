@@ -1,0 +1,15 @@
+import React from "react";
+import homeLogo from "./../../../ressources/Nation-sounds_1.png";
+import "./icons.style.css";
+
+function HomeLogo() {
+  return (
+    <div className="fixed flex w-full h-40 justify-center z-1 top-8">
+      <div className="homeLogo-container">
+      <img src={homeLogo} alt="Logo Nation Sounds" className="homeLogo rounded-2xl mx-auto" />
+      </div>
+    </div>
+  );
+}
+
+export default HomeLogo;
