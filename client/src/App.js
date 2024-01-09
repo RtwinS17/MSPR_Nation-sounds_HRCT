@@ -34,7 +34,6 @@ const App = () => {
         <MainContent>
           <HomeContent/>
         </MainContent>
-
       </div>
     </>
   );
