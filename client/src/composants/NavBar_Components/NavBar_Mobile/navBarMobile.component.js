@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import HomeIcon from '../../Molecule/Icon/homePicture-component';
 import AccountIcon from '../../Molecule/Icon/accountPicture-component';
@@ -24,7 +25,6 @@ const NavBarMobile = () => {
           <BurgerIcon />
         </div>
       </div>
-      
       <div className={`flex flex-col fixed top-0 right-0 h-full ${isMenuOpen ? 'w-[50%]' : 'w-0'} z-10 transition-width rounded-l-3xl duration-500 ease-in-out navBarMob`}>
           <ul className='navBarMob-li '>
           <li>Billeterie</li>
@@ -42,6 +42,7 @@ const NavBarMobile = () => {
           <XIcon />
         </div>
          
+
       </div>
     </>
   )
