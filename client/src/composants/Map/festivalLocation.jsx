@@ -1,19 +1,19 @@
 const festivalLocations = [
   {
     id: 1,
-    title: 'Scène principale',
+    title: 'Scène A',
     coordinates: [48.831448433324354, 2.4423541971134033],
     type: 'scene',
   },
   {
     id: 2,
-    title: 'Scène A',
+    title: 'Scène B',
     coordinates: [48.82994045936849, 2.4401758873799015],
     type: 'scene',
   },
   {
     id: 3,
-    title: 'Scène B',
+    title: 'Scène principale',
     coordinates: [48.828849351493574, 2.4426331468446243],
     type: 'scene',
   },
@@ -43,7 +43,7 @@ const festivalLocations = [
   },
   {
     id: 6,
-    title: 'Premiers secours',
+    title: 'Poste de secours',
     coordinates: [48.829983862746445, 2.4419079717298717],
     type: 'medical',
   },

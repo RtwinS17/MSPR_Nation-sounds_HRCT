@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import festivalLocations from './festivalLocation';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import MarkerClusterGroup from 'react-leaflet-cluster'
 import './map.style.css';
 import MapFilter from './mapFilter';
 import iconMappings from './iconMappings';
@@ -8,11 +9,10 @@ import iconMappings from './iconMappings';
 
 const Map = () => {
   const mapCenter = [48.83040876690479, 2.441774125391102];
-  const mapZoom = 16;
+  const mapZoom = 14;
 
   const lightTileLayer = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
-  const darkTileLayer =
-    'https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png';
+  const darkTileLayer = 'https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png';
 
   const [showScene, setShowScene] = useState(true);
   const [showRestauration, setShowRestauration] = useState(true);
@@ -20,7 +20,7 @@ const Map = () => {
   const [showMedical, setShowMedical] = useState(true);
 
   return (
-    <div className="w-full">
+    <div className='sm:w-full'>
       <MapFilter
         showScene={showScene}
         setShowScene={setShowScene}
@@ -34,9 +34,11 @@ const Map = () => {
       <MapContainer center={mapCenter} zoom={mapZoom} scrollWheelZoom={false}>
         <TileLayer
           TileLayer
-          url={lightTileLayer}
+          url={darkTileLayer}
           attribution='&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>'
         />
+          <MarkerClusterGroup
+          chunkedLoading>
         {festivalLocations.map((location, index) => {
           if (
             (location.type === 'scene' && showScene) ||
@@ -52,7 +54,7 @@ const Map = () => {
               >
                 {/* <LocationMarker /> */}
                 <Popup>
-                  <div className="text-center">{location.title}</div>
+                  <div className="text-center font-semibold">{location.title}</div>
                 </Popup>
               </Marker>
             );
@@ -60,6 +62,7 @@ const Map = () => {
             return null;
           }
         })}
+        </MarkerClusterGroup>
       </MapContainer>
     </div>
   );

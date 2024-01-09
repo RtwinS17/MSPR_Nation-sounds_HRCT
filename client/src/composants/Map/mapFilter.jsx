@@ -45,7 +45,7 @@ const MapFilter = ({
                 onChange={() => setShowRestauration(!showRestauration)}
                 className="m-2"
               />
-              <span>Restauration</span>
+              <span>Buvette & Restauration</span>
             </label>
             <label className="flex items-baseline mr-2 cursor-pointer">
               <input
@@ -63,7 +63,7 @@ const MapFilter = ({
                 onChange={() => setShowMedical(!showMedical)}
                 className="m-2"
               />
-              <span>Premiers secours</span>
+              <span>Poste de secours</span>
             </label>
           </div>
         )}
