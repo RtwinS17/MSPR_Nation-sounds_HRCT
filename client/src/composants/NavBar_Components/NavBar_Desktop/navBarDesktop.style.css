@@ -1,29 +1,20 @@
+.navBarDesk-container {
+    transition: left 0.7s ease-in-out;
+    left: 0;
+}
+
+.navBarDesk-container.hide {
+    left: -3.6rem;
+}
 .navBarDesk {
-    background-color: var(--white-100);
-    height:90vh;
-    border-radius: 0 3rem 3rem 0;
+    height: 60%;
+    width: 100%;
+    max-width: 70px;
+    border-radius: 0 2rem 2rem 0;
+    background-color: var(--white-500);
 }
 
-.navBarDesk:hover .expandMenu-nav {
-    min-height: 70vh;
-    min-width: 200px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    
-}
-
-.expandMenu-nav {
-    display: block;
-    min-height: 50px;
-    max-height: 50px;
-    overflow-y:hidden ;
-    transition: min-height 3s ease;
-}
-
-.expandMenu-nav:hover {
-    min-height: 70vh;
-    max-height: 70vh;
-    min-width: 200px;
+.expand-btn {
+    background-color: var(--white-500);
+    border-radius: 40%;
 }
