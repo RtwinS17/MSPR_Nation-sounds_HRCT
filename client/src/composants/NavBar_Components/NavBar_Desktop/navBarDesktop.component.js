@@ -13,9 +13,9 @@ export const NavBarDesktop = () => {
             <div className={"navBarDesk-container fixed flex flex-col justify-center w-[150px] h-screen top-0 z-50 items-start" + (expand ? "" : " hide")} >
                 <div className="navBarDesk flex flex-col justify-between gap-16 items-center py-4">
                     {!expand ? 
-                    <div className="expand-btn absolute top-[45%] right-10 flex justify-center h-16">
+                    <div className="expand-btn absolute top-[45%] right-16 flex justify-center h-16 w-8 rounded-xl">
                         <button onClick={expandOnCLick}>
-                    <BurgerIcon id="expandNavBarDesk" size="50px"/>
+                    +
                     </button>
                     </div> : ""}
                     <div className="flex flex-col justify-around h-full">

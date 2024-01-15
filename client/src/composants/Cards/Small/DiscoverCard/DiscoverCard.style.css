@@ -1,0 +1,10 @@
+.cardDiscover-container {
+    background-color: var(--secondary-orange);
+    border-color: var(--secondray-orange-border);
+    color: var(--main-xDark);
+}
+
+h2 {
+    color:var(--main-text);
+    font-weight: bold;
+}

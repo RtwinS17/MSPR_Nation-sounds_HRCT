@@ -20,13 +20,15 @@ const NavBarMobile = () => {
     <>
       <div className='fixed flex justify-between w-[90%] h-[50px] top-[90%] left-6 z-10'>
         <AccountIcon />
-        <HomeIcon />
+        <button className="btn-accent p-2 font-bold min-w-[80px]">
+          <span>Carte</span>
+        </button>
         <div onClick={toggleMenu}>
           <BurgerIcon />
         </div>
       </div>
       <div className={`flex flex-col fixed top-0 right-0 h-full ${isMenuOpen ? 'w-[50%]' : 'w-0'} z-10 transition-width rounded-l-3xl duration-500 ease-in-out navBarMob`}>
-          <ul className='navBarMob-li '>
+        <ul className='navBarMob-li '>
           <li>Billeterie</li>
           <li>Programmation</li>
           <li>Carte</li>
@@ -41,7 +43,7 @@ const NavBarMobile = () => {
         <div onClick={toggleMenu} className='flex justify-end w-full p-10'>
           <XIcon />
         </div>
-         
+
 
       </div>
     </>
