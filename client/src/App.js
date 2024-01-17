@@ -6,6 +6,8 @@ import { ThemeBtn } from './composants/Molecule/Button/themeChanger.btn';
 import Diaporamahome from './composants/Cards/Large/HomeCard/diaporamaHome';
 import HomeLogo from './composants/Molecule/Icon/homeLogo';
 import { HomeContent } from './composants/Cards/Large/HomeCard/contentHome.component';
+import { Login } from './composants/Cards/Medium/LoginCards/login.component';
+import { Register } from './composants/Cards/Medium/RegisterCards/register.component';
 
 
 const App = () => {
@@ -29,7 +31,7 @@ const App = () => {
         <Diaporamahome />
         <HomeLogo />
         <MainContent>
-          <HomeContent/>
+          <Login/>
         </MainContent>
       </div>
     </>

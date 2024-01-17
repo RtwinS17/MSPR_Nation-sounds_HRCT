@@ -19,7 +19,6 @@ const NavBarMobile = () => {
   return (
     <>
       <div className='fixed flex justify-between w-[90%] h-[50px] top-[90%] left-6 z-10'>
-        <AccountIcon />
         <button className="btn-accent p-2 font-bold min-w-[80px]">
           <span>Carte</span>
         </button>
