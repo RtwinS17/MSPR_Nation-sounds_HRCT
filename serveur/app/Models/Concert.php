@@ -7,13 +7,13 @@
 namespace App\Models;
 
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * Class Concert
  * 
- * @property int $ID
+ * @property int $id
  * @property string $Groupe
  * @property int $Horaires
  * @property string $Scene
@@ -21,17 +21,13 @@ use Illuminate\Database\Eloquent\Model;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property int|null $Id_lieu
- * 
- * @property Lieu|null $lieu
- * @property Collection|Genre[] $genres
- * @property Collection|Partenaire[] $partenaires
  *
  * @package App\Models
  */
 class Concert extends Model
 {
+	use HasFactory;
 	protected $table = 'concert';
-	protected $primaryKey = 'ID';
 
 	protected $casts = [
 		'Horaires' => 'int',
@@ -46,18 +42,13 @@ class Concert extends Model
 		'Id_lieu'
 	];
 
-	public function lieu()
-	{
-		return $this->belongsTo(Lieu::class, 'Id_lieu');
-	}
-
 	public function genres()
-	{
-		return $this->hasMany(Genre::class, 'Id_concert');
-	}
+    {
+        return $this->hasMany(Genre::class, 'id_concert');
+    }
 
-	public function partenaires()
-	{
-		return $this->hasMany(Partenaire::class, 'Id_concert');
-	}
+    public function commentaires()
+    {
+        return $this->hasMany(Commentaire::class, 'id_concert');
+    }
 }

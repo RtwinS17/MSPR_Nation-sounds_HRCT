@@ -1,81 +1,71 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Genre;
+use Illuminate\Support\Facades\Validator;
 
 class GenreController extends Controller
 {
     public function index()
     {
-        // Récupérer tous les genres depuis la base de données
         $genres = Genre::all();
-
-        // Retourner la vue avec la liste des genres
-        return view('genres.index', ['genres' => $genres]);
+        return response()->json($genres);
     }
 
     public function show($id)
     {
-        // Récupérer un genre spécifique par son ID depuis la base de données
         $genre = Genre::find($id);
-
-        // Retourner la vue avec les détails du genre
-        return view('genres.show', ['genre' => $genre]);
-    }
-
-    public function create()
-    {
-        // Afficher le formulaire de création d'un nouveau genre
-        return view('genres.create');
+        if (!$genre) {
+            return response()->json(['message' => 'Genre not found'], 404);
+        }
+        return response()->json($genre);
     }
 
     public function store(Request $request)
     {
-        // Valider les données du formulaire
-        $request->validate([
-            'nom' => 'required',
-            'id_concert' => 'required',
+        $validator = Validator::make($request->all(), [
+            'Nom' => 'required',
+            'Id_concert' => 'required',
         ]);
 
-        // Créer un nouveau genre dans la base de données
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 400);
+        }
+
         $genre = Genre::create($request->all());
-
-        // Rediriger vers la vue des genres avec un message de succès
-        return redirect('/genres')->with('success', 'Genre ajouté avec succès');
-    }
-
-    public function edit($id)
-    {
-        // Récupérer un genre spécifique par son ID depuis la base de données
-        $genre = Genre::find($id);
-
-        // Afficher le formulaire d'édition du genre
-        return view('genres.edit', ['genre' => $genre]);
+        return response()->json($genre, 201);
     }
 
     public function update(Request $request, $id)
     {
-        // Valider les données du formulaire
-        $request->validate([
-            'nom' => 'required',
-            'id_concert' => 'required',
+        $validator = Validator::make($request->all(), [
+            'Nom' => 'required',
+            'Id_concert' => 'required',
         ]);
 
-        // Mettre à jour les informations du genre dans la base de données
-        Genre::find($id)->update($request->all());
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 400);
+        }
 
-        // Rediriger vers la vue des genres avec un message de succès
-        return redirect('/genres')->with('success', 'Genre mis à jour avec succès');
+        $genre = Genre::find($id);
+        if (!$genre) {
+            return response()->json(['message' => 'Genre not found'], 404);
+        }
+
+        $genre->update($request->all());
+        return response()->json($genre);
     }
 
     public function destroy($id)
     {
-        // Supprimer un genre spécifique par son ID depuis la base de données
-        Genre::destroy($id);
+        $genre = Genre::find($id);
+        if (!$genre) {
+            return response()->json(['message' => 'Genre not found'], 404);
+        }
 
-        // Rediriger vers la vue des genres avec un message de succès
-        return redirect('/genres')->with('success', 'Genre supprimé avec succès');
+        $genre->delete();
+        return response()->json(['message' => 'Genre deleted successfully']);
     }
 }
+

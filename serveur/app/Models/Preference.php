@@ -8,11 +8,12 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * Class Preference
  * 
- * @property int $Id
+ * @property int $id
  * @property int|null $Id_user
  * @property string $Theme
  * @property string $Genre
@@ -24,8 +25,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Preference extends Model
 {
+	use HasFactory;
 	protected $table = 'preference';
-	protected $primaryKey = 'Id';
 
 	protected $casts = [
 		'Id_user' => 'int'

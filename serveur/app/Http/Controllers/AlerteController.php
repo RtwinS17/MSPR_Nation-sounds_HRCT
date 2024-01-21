@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Validator;
 
 class AlerteController extends Controller
 {
+    
     public function index()
     {
         $alertes = Alerte::all();
@@ -26,9 +27,9 @@ class AlerteController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'titre' => 'required|max:255',
-            'type' => 'required|max:255',
-            'texte' => 'required|max:255',
+            'Titre' => 'required|max:255',
+            'Type' => 'required|max:255',
+            'Texte' => 'required|max:255',
         ]);
 
         if ($validator->fails()) {
@@ -39,26 +40,28 @@ class AlerteController extends Controller
         return response()->json($alerte, 201);
     }
 
+    
     public function update(Request $request, $id)
-    {
-        $validator = Validator::make($request->all(), [
-            'titre' => 'required|max:255',
-            'type' => 'required|max:255',
-            'texte' => 'required|max:255',
-        ]);
-
-        if ($validator->fails()) {
-            return response()->json($validator->errors(), 400);
-        }
-
-        $alerte = Alerte::find($id);
-        if (!$alerte) {
-            return response()->json(['message' => 'Alerte not found'], 404);
-        }
-
-        $alerte->update($request->all());
-        return response()->json($alerte);
+{
+    $alerte = Alerte::find($id);
+    if (!$alerte) {
+        return response()->json(['message' => 'Alerte not found'], 404);
     }
+
+    $validator = Validator::make($request->all(), [
+        'Titre' => 'required|max:255',
+        'Type' => 'required|max:255',
+        'Texte' => 'required|max:255',
+    ]);
+
+    if ($validator->fails()) {
+        return response()->json($validator->errors(), 400);
+    }
+
+    $alerte->update($request->all());
+    return response()->json($alerte);
+}
+
 
     public function destroy($id)
     {

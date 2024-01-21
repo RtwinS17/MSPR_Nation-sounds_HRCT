@@ -8,11 +8,12 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * Class Commentaire
  * 
- * @property int $Id
+ * @property int $id
  * @property int $Id_user
  * @property int $Id_concert
  * @property string $Texte
@@ -25,8 +26,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Commentaire extends Model
 {
+	use HasFactory;
 	protected $table = 'commentaire';
-	protected $primaryKey = 'Id';
 
 	protected $casts = [
 		'Id_user' => 'int',
@@ -42,4 +43,15 @@ class Commentaire extends Model
 		'Note',
 		'Date'
 	];
+	
+    public function utilisateur()
+    {
+        return $this->belongsTo(Utilisateur::class, 'id_user');
+    }
+
+    public function concert()
+    {
+        return $this->belongsTo(Concert::class, 'id_concert');
+    }
 }
+
