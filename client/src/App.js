@@ -31,7 +31,7 @@ const App = () => {
         <Diaporamahome />
         <HomeLogo />
         <MainContent>
-          <Login/>
+          <Register/>
         </MainContent>
       </div>
     </>
