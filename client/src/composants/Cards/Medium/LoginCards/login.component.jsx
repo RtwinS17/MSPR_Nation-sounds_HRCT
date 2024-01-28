@@ -1,7 +1,7 @@
 import React from "react";
 import './login.style.css';
 import AccountIcon from "../../../Molecule/Icon/accountPicture-component";
-import MiniMap from "./../../../Map/miniMap";
+import Map from "../../../Map/map";
 
 export const Login = () => {
     return (
@@ -41,7 +41,7 @@ export const Login = () => {
                 </div>
 
                 <div className="miniMap-container overflow-hidden w-full h-full rounded-b-lg sm:rounded-bl-none sm:rounded-r-lg">
-                    <MiniMap />
+                    <Map></Map>
                 </div>
             </div>
         </>
