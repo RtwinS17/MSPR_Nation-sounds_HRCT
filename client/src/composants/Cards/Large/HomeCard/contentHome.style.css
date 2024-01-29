@@ -1,3 +1,4 @@
-article {
-    border: solid 2px red;
+.homeContainer {
+    background: var(--white-0);
+    border-radius: 2rem;
 }

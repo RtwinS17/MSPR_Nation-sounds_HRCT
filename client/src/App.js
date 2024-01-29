@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import NavBarMobile from './composants/NavBar_Components/NavBar_Mobile/navBarMobile.component';
 import { NavBarDesktop } from './composants/NavBar_Components/NavBar_Desktop/navBarDesktop.component';
 import { MainContent } from './composants/Cards/Large/HomeCard/homeCard.component';
-import { useSelector } from 'react-redux';
 import { ThemeBtn } from './composants/Molecule/Button/themeChanger.btn';
 import Diaporamahome from './composants/Cards/Large/HomeCard/diaporamaHome';
 import HomeLogo from './composants/Molecule/Icon/homeLogo';
@@ -18,9 +17,7 @@ const App = () => {
   useEffect(() => {
     window.addEventListener('resize', updateScreenWidth)
     screenWidth >= 640 ? setDeviceUSed('desktop') : setDeviceUSed('mobile')
-  })
-
-  let theme = useSelector(store => store.theme.value)
+  }, [screenWidth])
 
 
   return (

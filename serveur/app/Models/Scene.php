@@ -8,11 +8,12 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * Class Scene
  * 
- * @property int $Id
+ * @property int $id
  * @property string $Nom
  * @property string $Type
  * @property int $Id_lieu
@@ -23,8 +24,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Scene extends Model
 {
+	use HasFactory;
 	protected $table = 'scene';
-	protected $primaryKey = 'Id';
 
 	protected $casts = [
 		'Id_lieu' => 'int'
@@ -35,4 +36,9 @@ class Scene extends Model
 		'Type',
 		'Id_lieu'
 	];
+	
+	public function lieu()
+    {
+        return $this->belongsTo(Lieu::class, 'id_lieu');
+    }
 }
