@@ -5,9 +5,10 @@ import { MainContent } from './composants/Cards/Large/HomeCard/homeCard.componen
 import { ThemeBtn } from './composants/Molecule/Button/themeChanger.btn';
 import Diaporamahome from './composants/Cards/Large/HomeCard/diaporamaHome';
 import HomeLogo from './composants/Molecule/Icon/homeLogo';
-import { HomeContent } from './composants/Cards/Large/HomeCard/contentHome.component';
-import { Login } from './composants/Cards/Medium/LoginCards/login.component';
 import { Register } from './composants/Cards/Medium/RegisterCards/register.component';
+import store from './appStore/store';
+import { updateAlerte } from './appStore/slices/alertes.slice';
+import { useDispatch } from 'react-redux';
 
 
 const App = () => {
@@ -21,6 +22,9 @@ const App = () => {
     screenWidth >= 640 ? setDeviceUSed('desktop') : setDeviceUSed('mobile')
   }, [screenWidth])
 
+  const dispatch = useDispatch()
+
+
 
   return (
     <>
@@ -31,7 +35,7 @@ const App = () => {
         <Diaporamahome />
         <HomeLogo />
         <MainContent>
-          <Register/>
+          <button onClick={() => dispatch(updateAlerte())} className='btn-primary'> Pushing redux store test</button>
         </MainContent>
       </div>
     </>
