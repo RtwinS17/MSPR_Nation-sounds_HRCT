@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 import HomeIcon from "../../Molecule/Icon/homePicture-component";
 import CloseMenuIcon from "../../Molecule/Icon/closeNavBarArrow-component";
 import './navBarDesktop.style.css';
@@ -18,12 +19,13 @@ export const NavBarDesktop = () => {
                     <BurgerIcon id="expandNavBarDesk" size="50px"/>
                     </button>
                     </div> : ""}
-                    <div className="flex flex-col justify-around h-full">
-                        <HomeIcon id={idIcons[0]} />
-                        <HomeIcon id={idIcons[1]} />
-                        <HomeIcon id={idIcons[2]} />
-                        <HomeIcon id={idIcons[3]} />
-                        <HomeIcon id={idIcons[4]} />
+                    <div className="flex flex-col justify-around h-full w-full">
+                        <Link to="/"><HomeIcon id={idIcons[0]} /> </Link>
+                        <Link to="/billeterie">Billeterie</Link>
+                        <Link to="/programmation">Programmation</Link>
+                        <Link to="/carte">Carte</Link>
+                        <Link to="/infos-pratiques">Infos pratiques</Link>
+                        <Link to="/partenaires">Partenaires</Link>
                     </div>
                     <button onClick={expandOnCLick} className="w-full flex justify-center animation">
                     <CloseMenuIcon id={"navBarDesktop_closeMenu"} />
