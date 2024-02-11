@@ -36,3 +36,4 @@ export const ArtistCard = () => {
     
 )
 }
+export default ArtistCard;

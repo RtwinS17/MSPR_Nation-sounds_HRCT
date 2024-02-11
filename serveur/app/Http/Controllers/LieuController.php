@@ -1,79 +1,72 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Lieu;
+use Illuminate\Support\Facades\Validator;
 
 class LieuController extends Controller
 {
     public function index()
     {
-        // Récupérer tous les lieux depuis la base de données
         $lieux = Lieu::all();
-
-        // Retourner la vue avec la liste des lieux
-        return view('lieux.index', ['lieux' => $lieux]);
+        return response()->json($lieux);
     }
 
     public function show($id)
     {
-        // Récupérer un lieu spécifique par son ID depuis la base de données
         $lieu = Lieu::find($id);
-
-        // Retourner la vue avec les détails du lieu
-        return view('lieux.show', ['lieu' => $lieu]);
-    }
-
-    public function create()
-    {
-        // Afficher le formulaire de création d'un nouveau lieu
-        return view('lieux.create');
+        if (!$lieu) {
+            return response()->json(['message' => 'Lieu not found'], 404);
+        }
+        return response()->json($lieu);
     }
 
     public function store(Request $request)
     {
-        // Valider les données du formulaire
-        $request->validate([
-            'localisation_gps' => 'required',
+        $validator = Validator::make($request->all(), [
+            'latitude' => 'required',
+            'longitude' => 'required',
+            
         ]);
 
-        // Créer un nouveau lieu dans la base de données
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 400);
+        }
+
         $lieu = Lieu::create($request->all());
-
-        // Rediriger vers la vue des lieux avec un message de succès
-        return redirect('/lieux')->with('success', 'Lieu ajouté avec succès');
-    }
-
-    public function edit($id)
-    {
-        // Récupérer un lieu spécifique par son ID depuis la base de données
-        $lieu = Lieu::find($id);
-
-        // Afficher le formulaire d'édition du lieu
-        return view('lieux.edit', ['lieu' => $lieu]);
+        return response()->json($lieu, 201);
     }
 
     public function update(Request $request, $id)
     {
-        // Valider les données du formulaire
-        $request->validate([
-            'localisation_gps' => 'required',
+        $validator = Validator::make($request->all(), [
+            'latitude' => 'required',
+            'longitude' => 'required',
         ]);
 
-        // Mettre à jour les informations du lieu dans la base de données
-        Lieu::find($id)->update($request->all());
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 400);
+        }
 
-        // Rediriger vers la vue des lieux avec un message de succès
-        return redirect('/lieux')->with('success', 'Lieu mis à jour avec succès');
+        $lieu = Lieu::find($id);
+        if (!$lieu) {
+            return response()->json(['message' => 'Lieu not found'], 404);
+        }
+
+        $lieu->update($request->all());
+        return response()->json($lieu);
     }
 
     public function destroy($id)
     {
-        // Supprimer un lieu spécifique par son ID depuis la base de données
-        Lieu::destroy($id);
+        $lieu = Lieu::find($id);
+        if (!$lieu) {
+            return response()->json(['message' => 'Lieu not found'], 404);
+        }
 
-        // Rediriger vers la vue des lieux avec un message de succès
-        return redirect('/lieux')->with('success', 'Lieu supprimé avec succès');
+        $lieu->delete();
+        return response()->json(['message' => 'Lieu deleted successfully']);
     }
 }
+

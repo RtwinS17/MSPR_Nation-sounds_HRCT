@@ -1,5 +1,8 @@
 
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import HomeIcon from '../../Molecule/Icon/homePicture-component';
+import AccountIcon from '../../Molecule/Icon/accountPicture-component';
 import './navBarMobile.style.css';
 import BurgerIcon from '../../Molecule/Icon/burgerIcon-component';
 import FacebookIcon from '../../Molecule/Icon/fbIcon-component';
@@ -16,24 +19,20 @@ const NavBarMobile = () => {
 
   return (
     <>
-      <div className='fixed flex justify-between w-[90%] h-[50px] top-[90%] left-6 z-10 pointer-events-none'>
-        <button className="btn-accent p-2 font-bold min-w-[80px] pointer-events-auto">
-          <span>Carte</span>
-        </button>
-        <div className='w-full'>
-
-        </div>
-        <div className='pointer-events-auto' onClick={toggleMenu}>
+      <div className='fixed flex justify-between w-[90%] h-[50px] top-[90%] left-6 z-10'>
+        <AccountIcon />
+        <Link to="/"> <HomeIcon /> </Link>  
+        <div onClick={toggleMenu}>
           <BurgerIcon />
         </div>
       </div>
       <div className={`flex flex-col fixed top-0 right-0 h-full ${isMenuOpen ? 'w-[50%]' : 'w-0'} z-10 transition-width rounded-l-3xl duration-500 ease-in-out navBarMob`}>
-        <ul className='navBarMob-li '>
-          <li>Billeterie</li>
-          <li>Programmation</li>
-          <li>Carte</li>
-          <li>Infos pratiques</li>
-          <li>Partenaires</li>
+          <ul className='navBarMob-li '>
+          <li><Link to="/billeterie">Billeterie</Link></li>
+          <li><Link to="/programmation">Programmation</Link></li>
+          <li><Link to="/carte">Carte</Link></li>
+          <li><Link to="/infos-pratiques">Infos pratiques</Link></li>
+          <li><Link to="/partenaires">Partenaires</Link></li>
         </ul>
         <div className='flex flex-row gap-x-6 mx-auto'>
           <FacebookIcon />

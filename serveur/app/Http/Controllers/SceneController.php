@@ -4,82 +4,69 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Scene;
+use Illuminate\Support\Facades\Validator;
 
 class SceneController extends Controller
 {
     public function index()
     {
-        // Récupérer toutes les scènes depuis la base de données
-        $scenes = Scene::all();
-
-        // Retourner la vue avec la liste des scènes
-        return view('scenes.index', ['scenes' => $scenes]);
+        return response()->json(Scene::all());
     }
 
     public function show($id)
     {
-        // Récupérer une scène spécifique depuis la base de données
-        $scene = Scene::findOrFail($id);
-
-        // Retourner la vue avec les détails de la scène
-        return view('scenes.show', ['scene' => $scene]);
-    }
-
-    public function create()
-    {
-        // Retourner la vue avec le formulaire de création de scène
-        return view('scenes.create');
+        $scene = Scene::find($id);
+        if (!$scene) {
+            return response()->json(['message' => 'Scene not found'], 404);
+        }
+        return response()->json($scene);
     }
 
     public function store(Request $request)
     {
-        // Valider les données du formulaire
-        $validatedData = $request->validate([
-            'nom' => 'required|string|max:255',
-            'type' => 'required|string|max:255',
-            'id_lieu' => 'required|exists:lieu,id',
+        $validator = Validator::make($request->all(), [
+            'Nom' => 'required|string|max:255',
+            'Type' => 'required|string|max:255',
+            
         ]);
 
-        // Créer une nouvelle scène dans la base de données
-        $scene = Scene::create($validatedData);
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 400);
+        }
 
-        // Rediriger vers la liste des scènes avec un message de succès
-        return redirect('/scenes')->with('success', 'Scène créée avec succès');
-    }
-
-    public function edit($id)
-    {
-        // Récupérer une scène spécifique depuis la base de données pour l'édition
-        $scene = Scene::findOrFail($id);
-
-        // Retourner la vue avec le formulaire d'édition de scène
-        return view('scenes.edit', ['scene' => $scene]);
+        $scene = Scene::create($request->all());
+        return response()->json($scene, 201);
     }
 
     public function update(Request $request, $id)
     {
-        // Valider les données du formulaire
-        $validatedData = $request->validate([
-            'nom' => 'required|string|max:255',
-            'type' => 'required|string|max:255',
-            'id_lieu' => 'required|exists:lieu,id',
+        $validator = Validator::make($request->all(), [
+            'Nom' => 'required|string|max:255',
+            'Type' => 'required|string|max:255',
+         
         ]);
 
-        // Mettre à jour les informations de la scène dans la base de données
-        $scene = Scene::findOrFail($id);
-        $scene->update($validatedData);
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 400);
+        }
 
-        // Rediriger vers la liste des scènes avec un message de succès
-        return redirect('/scenes')->with('success', 'Scène mise à jour avec succès');
+        $scene = Scene::find($id);
+        if (!$scene) {
+            return response()->json(['message' => 'Scene not found'], 404);
+        }
+
+        $scene->update($request->all());
+        return response()->json($scene);
     }
 
     public function destroy($id)
     {
-        // Supprimer une scène de la base de données
-        $scene = Scene::findOrFail($id);
-        $scene->delete();
+        $scene = Scene::find($id);
+        if (!$scene) {
+            return response()->json(['message' => 'Scene not found'], 404);
+        }
 
-        // Rediriger vers la liste des scènes avec un message de succès
-        return redirect('/scenes')->with('success', 'Scène supprimée avec succès');
+        $scene->delete();
+        return response()->json(['message' => 'Scene deleted successfully']);
     }
 }

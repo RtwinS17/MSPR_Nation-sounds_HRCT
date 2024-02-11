@@ -4,84 +4,76 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Commentaire;
+use Illuminate\Support\Facades\Validator;
 
 class CommentaireController extends Controller
 {
     public function index()
     {
-        // Récupérer toutes les commentaires depuis la base de données
         $commentaires = Commentaire::all();
-
-        // Retourner la vue avec la liste des commentaires
-        return view('commentaires.index', ['commentaires' => $commentaires]);
+        return response()->json($commentaires);
     }
 
     public function show($id)
     {
-        // Récupérer un commentaire spécifique par son ID depuis la base de données
         $commentaire = Commentaire::find($id);
-
-        // Retourner la vue avec les détails du commentaire
-        return view('commentaires.show', ['commentaire' => $commentaire]);
-    }
-
-    public function create()
-    {
-        // Afficher le formulaire de création d'un nouveau commentaire
-        return view('commentaires.create');
+        if (!$commentaire) {
+            return response()->json(['message' => 'Commentaire non trouvé'], 404);
+        }
+        return response()->json($commentaire);
     }
 
     public function store(Request $request)
     {
-        // Valider les données du formulaire
-        $request->validate([
-            'id_user' => 'required',
-            'id_concert' => 'required',
-            'texte' => 'required',
-            'note' => 'required',
-            'date' => 'required',
+        $validator = Validator::make($request->all(), [
+            'Id_user' => 'required',
+            'Id_concert' => 'required',
+            'Texte' => 'required',
+            'Note' => 'required',
+            'Date' => 'required',
         ]);
 
-        // Créer un nouveau commentaire dans la base de données
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 400);
+        }
+
         $commentaire = Commentaire::create($request->all());
-
-        // Rediriger vers la vue des commentaires avec un message de succès
-        return redirect('/commentaires')->with('success', 'Commentaire ajouté avec succès');
-    }
-
-    public function edit($id)
-    {
-        // Récupérer un commentaire spécifique par son ID depuis la base de données
-        $commentaire = Commentaire::find($id);
-
-        // Afficher le formulaire d'édition du commentaire
-        return view('commentaires.edit', ['commentaire' => $commentaire]);
+        return response()->json($commentaire, 201);
     }
 
     public function update(Request $request, $id)
     {
-        // Valider les données du formulaire
-        $request->validate([
-            'id_user' => 'required',
-            'id_concert' => 'required',
-            'texte' => 'required',
-            'note' => 'required',
-            'date' => 'required',
+        $commentaire = Commentaire::find($id);
+        if (!$commentaire) {
+            return response()->json(['message' => 'Commentaire non trouvé'], 404);
+        }
+
+        $validator = Validator::make($request->all(), [
+            'Id_user' => 'required',
+            'Id_concert' => 'required',
+            'Texte' => 'required',
+            'Note' => 'required',
+            'Date' => 'required',
         ]);
 
-        // Mettre à jour les informations du commentaire dans la base de données
-        Commentaire::find($id)->update($request->all());
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 400);
+        }
 
-        // Rediriger vers la vue des commentaires avec un message de succès
-        return redirect('/commentaires')->with('success', 'Commentaire mis à jour avec succès');
+       
+
+        $commentaire->update($request->all());
+        return response()->json($commentaire);
     }
 
     public function destroy($id)
     {
-        // Supprimer un commentaire spécifique par son ID depuis la base de données
-        Commentaire::destroy($id);
+        $commentaire = Commentaire::find($id);
+        if (!$commentaire) {
+            return response()->json(['message' => 'Commentaire non trouvé'], 404);
+        }
 
-        // Rediriger vers la vue des commentaires avec un message de succès
-        return redirect('/commentaires')->with('success', 'Commentaire supprimé avec succès');
+        $commentaire->delete();
+        return response()->json(['message' => 'Commentaire supprimé avec succès']);
     }
 }
