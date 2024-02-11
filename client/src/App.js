@@ -22,7 +22,6 @@ const App = () => {
     screenWidth >= 640 ? setDeviceUSed('desktop') : setDeviceUSed('mobile')
   }, [screenWidth])
 
-  const dispatch = useDispatch()
 
 
 
@@ -31,27 +30,27 @@ const App = () => {
       <div className='h-screen w-screen'>
 
         <Router>
-        {deviceUsed === 'mobile' ? <NavBarMobile /> : <NavBarDesktop />}
-        <Routes>
-          <Route path="/" element={
-          <>
-          <MainContent>
-          <HomeContent/>
-        </MainContent>
-        </>
+          {deviceUsed === 'mobile' ? <NavBarMobile /> : <NavBarDesktop />}
+          <Routes>
+            <Route path="/" element={
+              <>
+                <MainContent>
+                  <HomeContent />
+                </MainContent>
+              </>
             } />
-      <Route path="programmation" element={<ArtistCard />} />
-            <Route path="billeterie"  />
-            <Route path="carte"  />
-            <Route path="infos-pratiques"  />
-            <Route path="partenaires"  />
-            <Route path="details"  />
-        </Routes>
+            <Route path="programmation" element={<ArtistCard />} />
+            <Route path="billeterie" />
+            <Route path="carte" />
+            <Route path="infos-pratiques" />
+            <Route path="partenaires" />
+            <Route path="details" />
+          </Routes>
         </Router>
         <ThemeBtn />
         <Diaporamahome />
         <HomeLogo />
-        
+
       </div>
     </>
   );
