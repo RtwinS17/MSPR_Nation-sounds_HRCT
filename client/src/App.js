@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { useDispatch } from 'react-redux';
+
 import NavBarMobile from './composants/NavBar_Components/NavBar_Mobile/navBarMobile.component';
 import { NavBarDesktop } from './composants/NavBar_Components/NavBar_Desktop/navBarDesktop.component';
 import { MainContent } from './composants/Cards/Large/HomeCard/homeCard.component';
@@ -8,8 +10,6 @@ import Diaporamahome from './composants/Cards/Large/HomeCard/diaporamaHome';
 import HomeLogo from './composants/Molecule/Icon/homeLogo';
 import { HomeContent } from './composants/Cards/Large/HomeCard/contentHome.component';
 import ArtistCard from './composants/Cards/Large/ArtistCards/artistCard.component';
-
-
 
 const App = () => {
   let [screenWidth, setScreenWidth] = useState(window.innerWidth)
@@ -22,8 +22,7 @@ const App = () => {
     screenWidth >= 640 ? setDeviceUSed('desktop') : setDeviceUSed('mobile')
   }, [screenWidth])
 
-
-
+const dispatch = useDispatch();
 
   return (
     <>
@@ -50,7 +49,6 @@ const App = () => {
         <ThemeBtn />
         <Diaporamahome />
         <HomeLogo />
-
       </div>
     </>
   );

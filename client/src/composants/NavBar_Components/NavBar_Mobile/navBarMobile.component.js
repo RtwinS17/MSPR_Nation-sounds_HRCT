@@ -1,7 +1,6 @@
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import HomeIcon from '../../Molecule/Icon/homePicture-component';
 import AccountIcon from '../../Molecule/Icon/accountPicture-component';
 import './navBarMobile.style.css';
 import BurgerIcon from '../../Molecule/Icon/burgerIcon-component';
@@ -19,9 +18,9 @@ const NavBarMobile = () => {
 
   return (
     <>
-      <div className='fixed flex justify-between w-[90%] h-[50px] top-[90%] left-6 z-10'>
+      <div className='fixed flex justify-between w-[90%] pointer-events-none h-[50px] top-[90%] left-6 z-10'>
         <AccountIcon />
-        <Link to="/"> <HomeIcon /> </Link>  
+        <div></div> 
         <div onClick={toggleMenu}>
           <BurgerIcon />
         </div>

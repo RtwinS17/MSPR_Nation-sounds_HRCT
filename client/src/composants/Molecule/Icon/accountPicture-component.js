@@ -9,7 +9,7 @@ function AccountIcon({id=""}) {
   let theme = useSelector(store => store.theme.value)
   // Import result is the URL of your image
   return (
-    <div id={id} className='icon-user-logIn w-[50px] btn-secondary'>
+    <div id={id} className='icon-user-logIn w-[50px] btn-secondary pointer-events-auto'>
       {theme === 'day' ? <img src={accountLog} alt="Icon for login" /> : <img src={accountLogNight} alt="Icon for login" />  }  
     </div>
   )

@@ -10,24 +10,24 @@ const alerteSlice = createSlice({
         data: [],
     },
     reducers: {
-        updateAlertes(state){
+        updateAlertes(state) {
             // update state.data from the api
             // Set loading to false / true once it's done
-          },
-  
-        getAlerte(state) {
+        },
+
+        getAlertes(state) {
             // Get response from api
             // If success --> Call update, while loading set lodaing to true, once done set it to false
             // If error --> Throw error into state.error and log
         },
 
-        addAlerte(state, alerteObj = {}) {
+        addAlerte(state) {
             // push data with api (fetch's options)
             // If success --> call update, while loading set lodaing to true, once done set it to false
             // If error --> throw error into state.error and log
         },
 
-        removeAlerte(state, alerteObjID = 0) {
+        removeAlerte(state) {
             // Delete obj with api
             // Call service if need to find the obj to delete
             // If success --> Call update, while loading set lodaing to true, once done set it to false
@@ -41,5 +41,5 @@ const alerteSlice = createSlice({
 });
 
 
-export const {updateAlertes, getAlerte, addAlerte, removeAlerte, showAlertes} = alerteSlice.actions
+export const { updateAlertes, getAlertes, addAlerte, removeAlerte, showAlertes } = alerteSlice.actions
 export default alerteSlice.reducer

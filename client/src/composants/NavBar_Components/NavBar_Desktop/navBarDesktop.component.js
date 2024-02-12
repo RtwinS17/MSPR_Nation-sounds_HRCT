@@ -14,11 +14,11 @@ export const NavBarDesktop = () => {
             <div className={"navBarDesk-container fixed flex flex-col justify-center h-screen top-0 z-50 items-start" + (expand ? "" : " hide")} >
                 <div className="navBarDesk flex flex-col justify-between gap-16 items-center py-4 px-2">
                     {!expand ?
-                        <div className="expand-btn absolute top-[45%] left-[90%] flex justify-center h-16 w-8 rounded-xl">
-                            <button onClick={expandOnCLick}>
+                        
+                            <button className="expand-btn absolute top-[45%] left-[90%] h-16 w-8 rounded-xl" onClick={expandOnCLick}>
                                 +
                             </button>
-                        </div> : ""}
+                         : ""}
                     <div className="flex flex-col justify-around text-center h-full w-full">
                         <Link to="/" className="flex justify-center"><HomeIcon id={idIcons[0]} /> </Link>
                         <Link to="/billeterie">Billeterie</Link>
