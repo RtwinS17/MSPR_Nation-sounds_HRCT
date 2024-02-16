@@ -51,7 +51,7 @@
 
 /* Personalisation des checkboxs du filtre */
 
-input {
+.input-map {
   appearance: none;
   cursor: pointer;
   width: 12px;
@@ -61,7 +61,7 @@ input {
   position: relative;
 }
 
-input::before {
+.input-map::before {
   content: "";
   position: absolute;
   top: 50%;
@@ -73,15 +73,15 @@ input::before {
   background: #023047;
 }
 
-input::before {
+.input-map::before {
   transform: translate(-50%, -50%) scale(0);
   transition: transform .3s ease;
 }
 
-input:checked::before {
+.input-map:checked::before {
   transform: translate(-50%, -50%) scale(1);
 }
 
-input:checked + label {
+.input-map:checked + label {
   color: #023047;
 }

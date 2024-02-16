@@ -1,5 +1,5 @@
 /* Btn Primary */
-.btn-primary {
+    .btn-primary {
         background-color: var(--btn-primary-bg);
         color: var(--btn-primary-text);
         border-color: var(--btn-primary-border);

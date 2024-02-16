@@ -34,7 +34,7 @@ const MapFilter = ({
                 type="checkbox"
                 checked={showScene}
                 onChange={() => setShowScene(!showScene)}
-                className="m-2"
+                className="m-2 input-map"
               />
               <span>Scènes</span>
             </label>
@@ -43,7 +43,7 @@ const MapFilter = ({
                 type="checkbox"
                 checked={showRestauration}
                 onChange={() => setShowRestauration(!showRestauration)}
-                className="m-2"
+                className="m-2 input-map"
               />
               <span>Buvette & Restauration</span>
             </label>
@@ -52,7 +52,7 @@ const MapFilter = ({
                 type="checkbox"
                 checked={showToilets}
                 onChange={() => setShowToilets(!showToilets)}
-                className="m-2"
+                className="m-2 input-map"
               />
               <span>Toilettes</span>
             </label>
@@ -61,7 +61,7 @@ const MapFilter = ({
                 type="checkbox"
                 checked={showMedical}
                 onChange={() => setShowMedical(!showMedical)}
-                className="m-2"
+                className="m-2 input-map"
               />
               <span>Poste de secours</span>
             </label>

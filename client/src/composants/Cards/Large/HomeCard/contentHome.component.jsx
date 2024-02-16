@@ -7,19 +7,21 @@ export const HomeContent = () => {
 
     return (
         <>
-            <div className="h-[80%] flex flex-col gap-3 homeContainer p-3">
-                <article className="basis-2/6 hover:basis-4/6">
-                    <DiscoverCards/>
+            <div className="h-[90%] flex flex-col gap-3 homeContainer p-3">
+                <article className="basis-2/6">
+                    <DiscoverCards title=" DÉCOUVRIR LE FESTIVAL"/>
                 </article>
-                <article className="basis-2/6 hover:basis-4/6">
-                <DiscoverCards/>
+                <article className="basis-2/6">
+                    <DiscoverCards title="PROGRAMMATION" linkText="Découvrir les artistes"/>
                 </article>
-                <article className="basis-2/6 hover:basis-4/6">
-                <DiscoverCards/>
+                <article className="basis-2/6">
+                    <DiscoverCards title="BILLETTERIE" linkText="Acheter un billet"/>
                 </article>
             </div>
-            <div className="h-[20%] flex justify-center">
-                <span> Carte de l'événement </span>
+            <div className="hidden sm:flex h-[10%] w-full justify-center">
+                <button className="btn-accent p-2 font-bold">
+                    <span>Carte de l'événement</span>
+                </button>
             </div>
 
         </>

@@ -8,7 +8,7 @@ function BurgerIcon({id="", size="50px"}) {
   let theme = useSelector(store => store.theme.value)
 
   return (
-    <div id={id} className={`w-[${size}]`}>
+    <div id={id} className={`w-[${size}] pointer-events-auto`}>
      {theme === "day" ? <img src={burgerIcon} alt="Icon for menu" /> : <img src={burgerIconNight} alt="Icon for menu" />} 
     </div>
   )

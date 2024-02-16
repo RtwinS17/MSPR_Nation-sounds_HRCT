@@ -4,17 +4,15 @@
 }
 
 .navBarDesk-container.hide {
-    left: -3.6rem;
+    left: -7.5rem;
 }
 .navBarDesk {
     height: 60%;
-    width: 100%;
-    max-width: 70px;
+
     border-radius: 0 2rem 2rem 0;
     background-color: var(--white-500);
 }
 
 .expand-btn {
     background-color: var(--white-500);
-    border-radius: 40%;
 }
