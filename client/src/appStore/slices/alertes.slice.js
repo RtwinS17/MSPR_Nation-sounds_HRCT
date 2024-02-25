@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { SlicesServices } from '../../Service/Slices.service';
 import axios from 'axios';
 
 const alerteSlice = createSlice({
@@ -10,36 +9,55 @@ const alerteSlice = createSlice({
         data: [],
     },
     reducers: {
-        updateAlertes(state) {
-            // update state.data from the api
-            // Set loading to false / true once it's done
+        updateAlertes(state, action) {
+            state.data = action.payload;
         },
 
         getAlertes(state) {
-            // Get response from api
-            // If success --> Call update, while loading set lodaing to true, once done set it to false
-            // If error --> Throw error into state.error and log
+            state.loading = true;
+            axios.get('http://localhost:3000/api/alertes')
+                .then(response => {
+                    state.loading = false;
+                    state.data = response.data;
+                })
+                .catch(error => {
+                    state.loading = false;
+                    state.error = error.message;
+                });
         },
 
-        addAlerte(state) {
-            // push data with api (fetch's options)
-            // If success --> call update, while loading set lodaing to true, once done set it to false
-            // If error --> throw error into state.error and log
+        addAlerte(state, action) {
+            state.loading = true;
+            axios.post('http://localhost:3000/api/alertes', action.payload)
+                .then(response => {
+                    state.loading = false;
+                    state.data.push(response.data);
+                })
+                .catch(error => {
+                    state.loading = false;
+                    state.error = error.message;
+                });
         },
 
-        removeAlerte(state) {
-            // Delete obj with api
-            // Call service if need to find the obj to delete
-            // If success --> Call update, while loading set lodaing to true, once done set it to false
-            // If error --> Throw error into state.error and log
+        removeAlerte(state, action) {
+            state.loading = true;
+            const alerteIdToRemove = action.payload;
+            axios.delete(`http://localhost:3000/api/alertes/${alerteIdToRemove}`)
+                .then(() => {
+                    state.loading = false;
+                    state.data = state.data.filter(alerte => alerte.id !== alerteIdToRemove);
+                })
+                .catch(error => {
+                    state.loading = false;
+                    state.error = error.message;
+                });
         },
 
         showAlertes(state) {
-            console.log(state)
+            console.log(state.data);
         },
     }
 });
 
-
-export const { updateAlertes, getAlertes, addAlerte, removeAlerte, showAlertes } = alerteSlice.actions
-export default alerteSlice.reducer
+export const { updateAlertes, getAlertes, addAlerte, removeAlerte, showAlertes } = alerteSlice.actions;
+export default alerteSlice.reducer;

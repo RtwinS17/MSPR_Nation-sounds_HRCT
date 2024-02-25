@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { SlicesServices } from '../../Service/Slices.service';
 import axios from 'axios';
 
 const commentaireSlice = createSlice({
@@ -10,36 +9,66 @@ const commentaireSlice = createSlice({
         data: [],
     },
     reducers: {
-        updateCommentaires(state){
-            // update state.data from the api
-            // Set loading to false / true once it's done
-          },
-  
+        updateCommentaires(state, action) {
+            // Mettre à jour les commentaires avec les données reçues de l'API
+            state.data = action.payload;
+            state.loading = false;
+        },
+
         getCommentaire(state) {
-            // Get response from api
-            // If success --> Call update, while loading set lodaing to true, once done set it to false
-            // If error --> Throw error into state.error and log
+            // Effectuer une requête pour récupérer les commentaires
+            state.loading = true;
+            axios.get('http://localhost:3000/api/commentaires')
+                .then(response => {
+                    // Si la requête est réussie, mettre à jour les commentaires dans le state
+                    state.loading = false;
+                    state.data = response.data;
+                })
+                .catch(error => {
+                    // En cas d'erreur, mettre à jour le state avec l'erreur
+                    state.loading = false;
+                    state.error = error.message;
+                });
         },
 
-        addCommentaire(state, commentaireObj = {}) {
-            // push data with api (fetch's options)
-            // If success --> call update, while loading set lodaing to true, once done set it to false
-            // If error --> throw error into state.error and log
+        addCommentaire(state, action) {
+            // Ajouter un nouveau commentaire avec l'objet commentaire fourni
+            state.loading = true;
+            axios.post('http://localhost:3000/api/commentaires', action.payload)
+                .then(response => {
+                    // Si la requête est réussie, ajouter le nouveau commentaire au state
+                    state.loading = false;
+                    state.data.push(response.data);
+                })
+                .catch(error => {
+                    // En cas d'erreur, mettre à jour le state avec l'erreur
+                    state.loading = false;
+                    state.error = error.message;
+                });
         },
 
-        removeCommentaire(state, commenaireObjID = 0) {
-            // Delete obj with api
-            // Call service if need to find the obj to delete
-            // If success --> Call update, while loading set lodaing to true, once done set it to false
-            // If error --> Throw error into state.error and log
+        removeCommentaire(state, action) {
+            // Supprimer un commentaire avec l'ID du commentaire fourni
+            const commentaireId = action.payload;
+            state.loading = true;
+            axios.delete(`http://localhost:3000/api/commentaires/${commentaireId}`)
+                .then(() => {
+                    // Si la requête est réussie, supprimer le commentaire du state
+                    state.loading = false;
+                    state.data = state.data.filter(commentaire => commentaire.id !== commentaireId);
+                })
+                .catch(error => {
+                    // En cas d'erreur, mettre à jour le state avec l'erreur
+                    state.loading = false;
+                    state.error = error.message;
+                });
         },
 
         showCommentaires(state) {
-            console.log(state)
+            console.log(state.data);
         },
     }
 });
 
-
-export const {updateCommentaires, getCommentaire, addCommentaire, removeCommentaire, showCommentaires} = commentaireSlice.actions
-export default commentaireSlice.reducer
+export const { updateCommentaires, getCommentaire, addCommentaire, removeCommentaire, showCommentaires } = commentaireSlice.actions;
+export default commentaireSlice.reducer;
