@@ -1,5 +1,6 @@
 import React from "react";
 import { DiscoverCards } from "../../Small/DiscoverCard/DiscoverCard.component";
+import InteractiveMap from "../../../WordPress/InteractiveMap";
 
 import './contentHome.style.css';
 
@@ -16,6 +17,11 @@ export const HomeContent = () => {
                 </article>
                 <article className="basis-2/6">
                     <DiscoverCards title="BILLETTERIE" linkText="Acheter un billet"/>
+                </article>
+            </div>
+            <div className="hidden sm:flex h-[10%] w-full justify-center">
+            <article className="basis-2/6">
+                    <InteractiveMap />
                 </article>
             </div>
             <div className="hidden sm:flex h-[10%] w-full justify-center">
