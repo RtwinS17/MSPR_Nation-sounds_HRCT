@@ -12,6 +12,7 @@ import { HomeContent } from './composants/Cards/Large/HomeCard/contentHome.compo
 import ArtistCard from './composants/Cards/Large/ArtistCards/artistCard.component';
 
 const App = () => {
+  
   let [screenWidth, setScreenWidth] = useState(window.innerWidth)
   let [deviceUsed, setDeviceUSed] = useState('mobile')
   function updateScreenWidth() {
@@ -39,9 +40,9 @@ const dispatch = useDispatch();
               </>
             } />
             <Route path="programmation" element={<ArtistCard />} />
-            <Route path="billeterie" />
-            <Route path="carte" />
-            <Route path="infos-pratiques" />
+            <Route path="billeterie" element={<div> Insert Billeterie link</div>}/>
+            <Route path="carte" element={<div> Insert map Element </div>}/>
+            <Route path="infos-pratiques" element={<div> Insert Info pratiques element </div>}/>
             <Route path="partenaires" />
             <Route path="details" />
           </Routes>
