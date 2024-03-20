@@ -10,6 +10,11 @@ body {
   color: var(--main-text);
 }
 
+h1, h2, h3, h4, h5, h6 {
+  color: var(--secondary-text);
+  
+}
+
 .main-container {
   width: 85%;
   overflow-x: hidden;

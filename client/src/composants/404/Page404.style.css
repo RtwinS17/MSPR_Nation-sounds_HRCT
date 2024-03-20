@@ -1,0 +1,10 @@
+.container404 {
+color: var(--black-text) ;
+background-image: radial-gradient(circle, var(--white-100), var(--secondary-orange-border));
+}
+
+.svg404 {
+    background-image: url('../../ressources/404.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
