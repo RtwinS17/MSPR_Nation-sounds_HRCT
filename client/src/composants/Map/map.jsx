@@ -5,6 +5,7 @@ import MarkerClusterGroup from 'react-leaflet-cluster'
 import './map.style.css';
 import MapFilter from './mapFilter';
 import iconMappings from './iconMappings';
+import { MainContent } from '../Permanent/homeCard.component';
 //import LocationMarker from './locationMarker';
 
 const Map = () => {
@@ -20,51 +21,53 @@ const Map = () => {
   const [showMedical, setShowMedical] = useState(true);
 
   return (
-    <div className='sm:w-full'>
-      <MapFilter
-        showScene={showScene}
-        setShowScene={setShowScene}
-        showRestauration={showRestauration}
-        setShowRestauration={setShowRestauration}
-        showToilets={showToilets}
-        setShowToilets={setShowToilets}
-        showMedical={showMedical}
-        setShowMedical={setShowMedical}
-      />
-      <MapContainer center={mapCenter} zoom={mapZoom} scrollWheelZoom={false}>
-        <TileLayer
-          TileLayer
-          url={darkTileLayer}
-          attribution='&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>'
+    <MainContent>
+      <div className='sm:w-full'>
+        <MapFilter
+          showScene={showScene}
+          setShowScene={setShowScene}
+          showRestauration={showRestauration}
+          setShowRestauration={setShowRestauration}
+          showToilets={showToilets}
+          setShowToilets={setShowToilets}
+          showMedical={showMedical}
+          setShowMedical={setShowMedical}
         />
+        <MapContainer center={mapCenter} zoom={mapZoom} scrollWheelZoom={false}>
+          <TileLayer
+            TileLayer
+            url={darkTileLayer}
+            attribution='&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>'
+          />
           <MarkerClusterGroup
-          chunkedLoading>
-        {festivalLocations.map((location, index) => {
-          if (
-            (location.type === 'scene' && showScene) ||
-            (location.type === 'restauration' && showRestauration) ||
-            (location.type === 'toilets' && showToilets) ||
-            (location.type === 'medical' && showMedical)
-          ) {
-            return (
-              <Marker
-                key={index}
-                position={location.coordinates}
-                icon={iconMappings[location.type]}
-              >
-                {/* <LocationMarker /> */}
-                <Popup>
-                  <div className="text-center font-semibold">{location.title}</div>
-                </Popup>
-              </Marker>
-            );
-          } else {
-            return null;
-          }
-        })}
-        </MarkerClusterGroup>
-      </MapContainer>
-    </div>
+            chunkedLoading>
+            {festivalLocations.map((location, index) => {
+              if (
+                (location.type === 'scene' && showScene) ||
+                (location.type === 'restauration' && showRestauration) ||
+                (location.type === 'toilets' && showToilets) ||
+                (location.type === 'medical' && showMedical)
+              ) {
+                return (
+                  <Marker
+                    key={index}
+                    position={location.coordinates}
+                    icon={iconMappings[location.type]}
+                  >
+                    {/* <LocationMarker /> */}
+                    <Popup>
+                      <div className="text-center font-semibold">{location.title}</div>
+                    </Popup>
+                  </Marker>
+                );
+              } else {
+                return null;
+              }
+            })}
+          </MarkerClusterGroup>
+        </MapContainer>
+      </div>
+    </MainContent>
   );
 };
 
