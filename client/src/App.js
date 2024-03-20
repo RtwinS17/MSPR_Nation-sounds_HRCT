@@ -1,18 +1,30 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import { useDispatch } from 'react-redux';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import NavBarMobile from './composants/NavBar_Components/NavBar_Mobile/navBarMobile.component';
-import { NavBarDesktop } from './composants/NavBar_Components/NavBar_Desktop/navBarDesktop.component';
-import { MainContent } from './composants/Cards/Large/HomeCard/homeCard.component';
+import { MainContent } from './composants/Permanent/homeCard.component';
 import { ThemeBtn } from './composants/Molecule/Button/themeChanger.btn';
-import Diaporamahome from './composants/Cards/Large/HomeCard/diaporamaHome';
+import Diaporamahome from './composants/Permanent/diaporamaHome';
 import HomeLogo from './composants/Molecule/Icon/homeLogo';
-import { HomeContent } from './composants/Cards/Large/HomeCard/contentHome.component';
-import ArtistCard from './composants/Cards/Large/ArtistCards/artistCard.component';
+import { HomeContent } from './composants/HomePage/contentHome.component';
+import NavBarMobile from './composants/Permanent/NavBar_Components/NavBar_Mobile/navBarMobile.component';
+import { NavBarDesktop } from './composants/Permanent/NavBar_Components/NavBar_Desktop/navBarDesktop.component';
+import { Page404 } from './composants/404/Page404.component';
+import { Discover } from './composants/Discover/Discover.component';
+import { Programmation } from './composants/Discover/Programmation/Programmation.component';
+import { ArtistCard } from './composants/Discover/Artistes/artistCard.component';
+import { ArtistCardDetails } from './composants/Discover/Artistes/Details/ArtistCardDetails.component';
+import { ListGenres } from './composants/Discover/Genres/ListGenres.component';
+import { InfoPratiques } from './composants/Info-pratiques/infoPratique.component';
+import { FAQ } from './composants/Info-pratiques/FAQ/FAQ.component';
+import { Alertes } from './composants/Info-pratiques/Alertes/Alertes.component';
+import { Contact } from './composants/Info-pratiques/Contact/Contact.component';
+import { Partenaires } from './composants/Info-pratiques/Partenaires/Partenaires.component';
+import Map from './composants/Map/map';
+import { Billetterie } from './composants/Billetterie/Billetterie.component';
+
 
 const App = () => {
-  
+
   let [screenWidth, setScreenWidth] = useState(window.innerWidth)
   let [deviceUsed, setDeviceUSed] = useState('mobile')
   function updateScreenWidth() {
@@ -23,28 +35,33 @@ const App = () => {
     screenWidth >= 640 ? setDeviceUSed('desktop') : setDeviceUSed('mobile')
   }, [screenWidth])
 
-const dispatch = useDispatch();
-
   return (
     <>
       <div className='h-screen w-screen'>
 
         <Router>
-          {deviceUsed === 'mobile' ? <NavBarMobile /> : <NavBarDesktop />}
+          {deviceUsed === 'mobile' ? <NavBarMobile/> : <NavBarDesktop/>}
           <Routes>
+            <Route path='/*' element={<Page404/>} />
             <Route path="/" element={
-              <>
-                <MainContent>
-                  <HomeContent />
-                </MainContent>
-              </>
+              <MainContent>
+                <HomeContent/>
+              </MainContent>
             } />
-            <Route path="programmation" element={<ArtistCard />} />
-            <Route path="billeterie" element={<div> Insert Billeterie link</div>}/>
-            <Route path="carte" element={<div> Insert map Element </div>}/>
-            <Route path="infos-pratiques" element={<div> Insert Info pratiques element </div>}/>
-            <Route path="partenaires" />
-            <Route path="details" />
+            <Route path='/discover' element={<Discover/>}>
+              <Route path='programmation' element={<Programmation/>} />
+              <Route path='artists' element={<ArtistCard/>} />
+              <Route path='artists/:artistId' element={<ArtistCardDetails/>} />
+              <Route path='genres' element={<ListGenres/>} />
+            </Route>
+            <Route path='info-pratiques' element={ <InfoPratiques/> }>
+              <Route path='FAQ' element={ <FAQ/> } />
+              <Route path='alertes' element={<Alertes/>} />
+              <Route path='contact' element={ <Contact/> } />
+              <Route path='partenaires' element={<Partenaires/>} />
+            </Route>
+            <Route path='map' element={<Map/>} />
+            <Route path='billetterie' element={<Billetterie/>}/>
           </Routes>
         </Router>
         <ThemeBtn />

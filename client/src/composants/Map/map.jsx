@@ -11,7 +11,7 @@ const Map = () => {
   const mapCenter = [48.83040876690479, 2.441774125391102];
   const mapZoom = 14;
 
-  const lightTileLayer = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
+  // const lightTileLayer = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
   const darkTileLayer = 'https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png';
 
   const [showScene, setShowScene] = useState(true);
