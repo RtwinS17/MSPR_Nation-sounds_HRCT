@@ -1,11 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { DiscoverCards } from "./DiscoverCard.component";
 import DiscoverImage from '../../ressources/discover.jpg';
 import ProgrammationImage from '../../ressources/ArtistesCard.jpeg';
 import BilletterieImage from '../../ressources/billetterie.jpg';
-
-import { useDispatch, useSelector } from "react-redux";
-import { getAlertes } from "../../appStore/slices/alertes.slice";
 
 const textDiscover = {
     Question : "Découvrez Nations Sounds, le festival de musique incontournable de Paris ! Plongez dans une expérience musicale unique au cœur de la Ville Lumière. Pour toutes questions pratiques, c'est par ici !",
@@ -16,15 +13,6 @@ const textDiscover = {
 }
 
 export const HomeContent = () => {
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch(getAlertes());
-    }, [dispatch]);
-
-    const alertes = useSelector((state) => state.alertes.data);
-    console.log(alertes);
-
     return (
         <>
             <div className="h-full flex flex-col gap-3 overflow-y-auto">

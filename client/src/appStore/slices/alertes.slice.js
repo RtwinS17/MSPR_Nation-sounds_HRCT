@@ -1,16 +1,19 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-export const getAlertes = () => async (dispatch) => {
-  dispatch(getAlertesStart());
-  try {
+// Create the action with 
+// the type as first parameters 
+// and the payload as the second parameter
+// TODO : Try to set the action in a special file
+export const fetchAlertes = createAsyncThunk(
+  'alertes/fetchAlertes',
+  async () => {
     const response = await axios.get('http://localhost:8000/api/alertes');
-    dispatch(getAlertesSuccess(response.data));
-  } catch (error) {
-    dispatch(getAlertesFailure(error.message));
+    return response.data;
   }
-};
+);
 
+// The slice used by redUX store
 const alerteSlice = createSlice({
   name: 'alertes',
   initialState: {
@@ -18,20 +21,22 @@ const alerteSlice = createSlice({
     error: null,
     data: [],
   },
-  reducers: {
-    getAlertesStart: (state) => {
-      state.loading = true;
-    },
-    getAlertesSuccess: (state, action) => {
-      state.loading = false;
-      state.data = action.payload;
-    },
-    getAlertesFailure: (state, action) => {
-      state.loading = false;
-      state.error = action.payload;
-    },
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchAlertes.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchAlertes.fulfilled, (state, action) => {
+        state.loading = false;
+        state.data = action.payload;
+      })
+      .addCase(fetchAlertes.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      });
   },
 });
 
-export const { getAlertesStart, getAlertesSuccess, getAlertesFailure } = alerteSlice.actions;
 export default alerteSlice.reducer;

@@ -9,16 +9,10 @@ const commentaireSlice = createSlice({
         data: [],
     },
     reducers: {
-        updateCommentaires(state, action) {
-            // Mettre à jour les commentaires avec les données reçues de l'API
-            state.data = action.payload;
-            state.loading = false;
-        },
-
         getCommentaire(state) {
             // Effectuer une requête pour récupérer les commentaires
             state.loading = true;
-            axios.get('http://localhost:3000/api/commentaires')
+            axios.get('http://localhost:8000/api/commentaires')
                 .then(response => {
                     // Si la requête est réussie, mettre à jour les commentaires dans le state
                     state.loading = false;
@@ -46,29 +40,8 @@ const commentaireSlice = createSlice({
                     state.error = error.message;
                 });
         },
-
-        removeCommentaire(state, action) {
-            // Supprimer un commentaire avec l'ID du commentaire fourni
-            const commentaireId = action.payload;
-            state.loading = true;
-            axios.delete(`http://localhost:3000/api/commentaires/${commentaireId}`)
-                .then(() => {
-                    // Si la requête est réussie, supprimer le commentaire du state
-                    state.loading = false;
-                    state.data = state.data.filter(commentaire => commentaire.id !== commentaireId);
-                })
-                .catch(error => {
-                    // En cas d'erreur, mettre à jour le state avec l'erreur
-                    state.loading = false;
-                    state.error = error.message;
-                });
-        },
-
-        showCommentaires(state) {
-            console.log(state.data);
-        },
     }
 });
 
-export const { updateCommentaires, getCommentaire, addCommentaire, removeCommentaire, showCommentaires } = commentaireSlice.actions;
+export const { getCommentaire, addCommentaire } = commentaireSlice.actions;
 export default commentaireSlice.reducer;
