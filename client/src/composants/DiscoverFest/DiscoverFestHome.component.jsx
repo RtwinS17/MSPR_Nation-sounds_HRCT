@@ -9,7 +9,7 @@ export const DiscoverFestHome = () => {
 
     useEffect(() => {
         dispatch(fetchConcerts());
-    }, []);
+    });
 
     if (loading) {
         return <div>Loading...</div>;

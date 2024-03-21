@@ -1,7 +1,6 @@
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import AccountIcon from '../../../Molecule/Icon/accountPicture-component';
 import './navBarMobile.style.css';
 import BurgerIcon from '../../../Molecule/Icon/burgerIcon-component';
 import FacebookIcon from '../../../Molecule/Icon/fbIcon-component';
@@ -15,23 +14,25 @@ const NavBarMobile = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-
+  const closeMenu = () => {
+    setIsMenuOpen(false)
+  }
   return (
     <>
-      <div className='fixed flex justify-between w-[90%] pointer-events-none h-[50px] top-[90%] left-6 z-10'>
-        <AccountIcon />
-        <div></div> 
+      <div className='fixed flex justify-end w-[90%] pointer-events-none h-[50px] top-[90%] left-6 z-10'>
+        
+    
         <div onClick={toggleMenu}>
           <BurgerIcon />
         </div>
       </div>
       <div className={`flex flex-col fixed top-0 right-0 h-full ${isMenuOpen ? 'w-[50%]' : 'w-0'} z-10 transition-width rounded-l-3xl duration-500 ease-in-out navBarMob`}>
           <ul className='navBarMob-li '>
-          <li><Link to="/billeterie">Billeterie</Link></li>
-          <li><Link to="/programmation">Programmation</Link></li>
-          <li><Link to="/carte">Carte</Link></li>
-          <li><Link to="/infos-pratiques">Infos pratiques</Link></li>
-          <li><Link to="/partenaires">Partenaires</Link></li>
+          <li><Link onClick={() => closeMenu()} to="/billetterie">Billeterie</Link></li>
+          <li><Link onClick={() => closeMenu()} to="/discover/programmation">Programmation</Link></li>
+          <li><Link onClick={() => closeMenu()} to="/map">Carte</Link></li>
+          <li><Link onClick={() => closeMenu()} to="/infos-pratiques">Infos pratiques</Link></li>
+          <li><Link onClick={() => closeMenu()} to="/partenaires">Partenaires</Link></li>
         </ul>
         <div className='flex flex-row gap-x-6 mx-auto'>
           <FacebookIcon />

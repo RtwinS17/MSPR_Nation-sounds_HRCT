@@ -21,6 +21,7 @@ import { Contact } from './composants/Info-pratiques/Contact/Contact.component';
 import { Partenaires } from './composants/Info-pratiques/Partenaires/Partenaires.component';
 import Map from './composants/Map/map';
 import { Billetterie } from './composants/Billetterie/Billetterie.component';
+import { Playground } from './composants/Playground/Playground.component';
 
 
 const App = () => {
@@ -48,20 +49,20 @@ const App = () => {
                 <HomeContent/>
               </MainContent>
             } />
-            <Route path='/discover' element={<Discover/>}>
-              <Route path='programmation' element={<Programmation/>} />
-              <Route path='artists' element={<ArtistCard/>} />
-              <Route path='artists/:artistId' element={<ArtistCardDetails/>} />
-              <Route path='genres' element={<ListGenres/>} />
-            </Route>
-            <Route path='info-pratiques' element={ <InfoPratiques/> }>
+            <Route path='/discover' element={<Discover/>}/>
+              <Route path='/discover/programmation' element={<Programmation/>} />
+              <Route path='/discover/artists' element={<ArtistCard/>} />
+              <Route path='/discover/artists/:artistId' element={<ArtistCardDetails/>} />
+              <Route path='/discover/genres' element={<ListGenres/>} />
+            
+            <Route path='info-pratiques' element={ <InfoPratiques/> }/>
               <Route path='FAQ' element={ <FAQ/> } />
               <Route path='alertes' element={<Alertes/>} />
               <Route path='contact' element={ <Contact/> } />
               <Route path='partenaires' element={<Partenaires/>} />
-            </Route>
             <Route path='map' element={<Map/>} />
             <Route path='billetterie' element={<Billetterie/>}/>
+            <Route path='playground' element={<Playground/>}/>
           </Routes>
         </Router>
         <ThemeBtn />
