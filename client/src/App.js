@@ -15,7 +15,7 @@ import { ArtistCard } from './composants/Discover/Artistes/artistCard.component'
 import { ArtistCardDetails } from './composants/Discover/Artistes/Details/ArtistCardDetails.component';
 import { ListGenres } from './composants/Discover/Genres/ListGenres.component';
 import { InfoPratiques } from './composants/Info-pratiques/infoPratique.component';
-import { FAQ } from './composants/Info-pratiques/FAQ/FAQ.component';
+import FaqComponent from './composants/Info-pratiques/FAQ/FaqComponent';
 import { Alertes } from './composants/Info-pratiques/Alertes/Alertes.component';
 import { Contact } from './composants/Info-pratiques/Contact/Contact.component';
 import { Partenaires } from './composants/Info-pratiques/Partenaires/Partenaires.component';
@@ -56,7 +56,7 @@ const App = () => {
               <Route path='/discover/genres' element={<ListGenres/>} />
             
             <Route path='info-pratiques' element={ <InfoPratiques/> }/>
-              <Route path='FAQ' element={ <FAQ/> } />
+              <Route path='FAQ' element={ <FaqComponent/> } />
               <Route path='alertes' element={<Alertes/>} />
               <Route path='contact' element={ <Contact/> } />
               <Route path='partenaires' element={<Partenaires/>} />

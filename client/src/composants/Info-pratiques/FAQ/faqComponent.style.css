@@ -1,0 +1,52 @@
+.panel-title {
+  font-size: 1.25rem;
+  width: 90%;
+  margin-left: 3rem;
+  margin-top: 0.5rem;
+  display: block;
+  cursor: pointer;
+  padding-bottom: 1rem;
+}
+
+.panel-content {
+  font-size: 1rem;
+  padding: 0px 14px;
+  margin: 0 40px;
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  -webkit-transition: 0.4s ease;
+  -moz-transition: 0.4s ease;
+  -o-transition: 0.4s ease;
+  transition: 0.4s ease;
+  background-color: #f2eded96;
+}
+
+.panel:checked ~ .panel-content {
+  height: auto;
+  opacity: 1;
+  padding: 14px;
+}
+
+.plus {
+  position: absolute;
+  z-index: 0;
+  color: var(--color-n-1300);
+  font-size: 40px;
+  line-height: 100%;
+  -webkit-transition: 0.2s ease;
+  -moz-transition: 0.2s ease;
+  -o-transition: 0.2s ease;
+  transition: 0.2s ease;
+}
+
+.panel:checked ~ .plus {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.panel {
+  display: none;
+}
