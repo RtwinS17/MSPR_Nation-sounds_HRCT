@@ -5,7 +5,7 @@ import burgerIconNight from './../../../ressources/burgerIcon_night.svg';
 import './icons.style.css';
 
 function BurgerIcon({id="", size="50px"}) {
-  let theme = useSelector(store => store.theme.value)
+  let theme = useSelector(store => store.user.configuration.theme)
 
   return (
     <div id={id} className={`w-[${size}] pointer-events-auto`}>

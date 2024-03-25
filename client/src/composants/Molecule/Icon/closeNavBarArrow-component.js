@@ -6,7 +6,7 @@ import leftArrowNight from './../../../ressources/leftArrowIcon_night.svg';
 import './icons.style.css';
 
 function CloseMenuIcon({id=""}) {
-  let theme = useSelector(store => store.theme.value)
+  let theme = useSelector(store => store.user.configuration.theme)
   return (
     <div id={id} className='leftArrow-icon w-[50px]'>
     {theme === 'day' ? <img className='animate-bounce' src={leftArrow} alt="Icon for closing Menu" /> : <img src={leftArrowNight} alt="Icon for closing Menu" />}  

@@ -12,8 +12,6 @@ import { Page404 } from './composants/404/Page404.component';
 import { Discover } from './composants/Discover/Discover.component';
 import { Programmation } from './composants/Discover/Programmation/Programmation.component';
 import { ArtistCard } from './composants/Discover/Artistes/artistCard.component';
-import { ArtistCardDetails } from './composants/Discover/Artistes/Details/ArtistCardDetails.component';
-import { ListGenres } from './composants/Discover/Genres/ListGenres.component';
 import { InfoPratiques } from './composants/Info-pratiques/infoPratique.component';
 import { FAQ } from './composants/Info-pratiques/FAQ/FAQ.component';
 import { Alertes } from './composants/Info-pratiques/Alertes/Alertes.component';
@@ -51,10 +49,7 @@ const App = () => {
             } />
             <Route path='/discover' element={<Discover/>}/>
               <Route path='/discover/programmation' element={<Programmation/>} />
-              <Route path='/discover/artists' element={<ArtistCard/>} />
-              <Route path='/discover/artists/:artistId' element={<ArtistCardDetails/>} />
-              <Route path='/discover/genres' element={<ListGenres/>} />
-            
+              <Route path='/discover/artists' element={<ArtistCard/>} />            
             <Route path='info-pratiques' element={ <InfoPratiques/> }/>
               <Route path='FAQ' element={ <FAQ/> } />
               <Route path='alertes' element={<Alertes/>} />

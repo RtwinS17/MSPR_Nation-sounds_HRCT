@@ -6,7 +6,7 @@ import homeIconNight from './../../../ressources/homeIcon_night.svg';
 import './icons.style.css';
 
 function HomeIcon({id=""}) {
-    let theme = useSelector(store => store.theme.value)
+    let theme = useSelector(store => store.user.configuration.theme)
     return (
         <div id={id} className='w-[50px] icon-home-navBar'>
          {theme === 'day' ? <img src={homeIcon} alt="Icon for login" /> : <img src={homeIconNight} alt="Icon for login" />}   
