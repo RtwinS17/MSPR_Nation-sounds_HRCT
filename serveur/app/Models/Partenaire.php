@@ -6,6 +6,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -16,22 +17,33 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $Nom
  * @property int $Logo
  * @property string $Url
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property int|null $Id_concert
+ * 
+ * @property Concert|null $concert
  *
  * @package App\Models
  */
 class Partenaire extends Model
 {
 	protected $table = 'partenaire';
-	public $timestamps = false;
 
 	protected $casts = [
-		'Logo' => 'int'
+		'Logo' => 'int',
+		'Id_concert' => 'int'
 	];
 
 	protected $fillable = [
 		'Catégories',
 		'Nom',
 		'Logo',
-		'Url'
+		'Url',
+		'Id_concert'
 	];
+
+	public function concert()
+	{
+		return $this->belongsTo(Concert::class, 'Id_concert');
+	}
 }

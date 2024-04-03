@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class AuthController extends Controller
+class Authentification extends Controller
 {
     public function login(Request $request)
     {
@@ -27,9 +27,5 @@ class AuthController extends Controller
         return response()->json(['message' => 'Successfully logged out']);
     }
 
-    public function showLoginForm()
-    {
-        // Ici, vous pourriez retourner la vue du formulaire de connexion
-        return view('auth.login');
-    }
+
 }

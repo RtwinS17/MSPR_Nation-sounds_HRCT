@@ -6,16 +6,19 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Preference
  * 
  * @property int $Id
- * @property int $Id_user
+ * @property int|null $Id_user
  * @property string $Theme
  * @property string $Genre
  * @property string $Notification
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
  *
  * @package App\Models
  */
@@ -23,7 +26,6 @@ class Preference extends Model
 {
 	protected $table = 'preference';
 	protected $primaryKey = 'Id';
-	public $timestamps = false;
 
 	protected $casts = [
 		'Id_user' => 'int'

@@ -6,6 +6,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -15,6 +16,10 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $Type
  * @property string $Nom
  * @property int $Id_lieu
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * 
+ * @property Lieu $lieu
  *
  * @package App\Models
  */
@@ -22,7 +27,6 @@ class PointsInterest extends Model
 {
 	protected $table = 'points_interest';
 	protected $primaryKey = 'Id';
-	public $timestamps = false;
 
 	protected $casts = [
 		'Id_lieu' => 'int'
@@ -33,4 +37,9 @@ class PointsInterest extends Model
 		'Nom',
 		'Id_lieu'
 	];
+
+	public function lieu()
+	{
+		return $this->belongsTo(Lieu::class, 'Id_lieu');
+	}
 }

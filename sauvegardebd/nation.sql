@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3307
--- Généré le : mar. 21 nov. 2023 à 20:15
+-- Généré le : jeu. 30 nov. 2023 à 21:48
 -- Version du serveur : 10.10.2-MariaDB
 -- Version de PHP : 8.2.0
 
@@ -141,9 +141,10 @@ CREATE TABLE IF NOT EXISTS `genre` (
 DROP TABLE IF EXISTS `lieu`;
 CREATE TABLE IF NOT EXISTS `lieu` (
   `Id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `Localisation_GPS` varchar(191) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
+  `latitude` decimal(10,8) DEFAULT NULL,
+  `longitude` decimal(11,8) DEFAULT NULL,
   PRIMARY KEY (`Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
