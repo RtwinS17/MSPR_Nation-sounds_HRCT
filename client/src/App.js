@@ -13,13 +13,15 @@ import { Discover } from './composants/Discover/Discover.component';
 import { Programmation } from './composants/Discover/Programmation/Programmation.component';
 import { ArtistCard } from './composants/Discover/Artistes/artistCard.component';
 import { InfoPratiques } from './composants/Info-pratiques/infoPratique.component';
-import { FAQ } from './composants/Info-pratiques/FAQ/FAQ.component';
+import FaqComponent from './composants/Info-pratiques/FAQ/FaqComponent';
 import { Alertes } from './composants/Info-pratiques/Alertes/Alertes.component';
 import { Contact } from './composants/Info-pratiques/Contact/Contact.component';
-import { Partenaires } from './composants/Info-pratiques/Partenaires/Partenaires.component';
+import PartenairesComponent from './composants/Info-pratiques/Partenaires/Partenaires.component';
 import Map from './composants/Map/map';
 import { Billetterie } from './composants/Billetterie/Billetterie.component';
 import { Playground } from './composants/Playground/Playground.component';
+
+
 
 
 const App = () => {
@@ -51,10 +53,10 @@ const App = () => {
               <Route path='/discover/programmation' element={<Programmation/>} />
               <Route path='/discover/artists' element={<ArtistCard/>} />            
             <Route path='info-pratiques' element={ <InfoPratiques/> }/>
-              <Route path='FAQ' element={ <FAQ/> } />
+              <Route path='FAQ' element={ <FaqComponent/> } />
               <Route path='alertes' element={<Alertes/>} />
               <Route path='contact' element={ <Contact/> } />
-              <Route path='partenaires' element={<Partenaires/>} />
+              <Route path='partenaires' element={<PartenairesComponent/>} />
             <Route path='map' element={<Map/>} />
             <Route path='billetterie' element={<Billetterie/>}/>
             <Route path='playground' element={<Playground/>}/>

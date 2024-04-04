@@ -22,7 +22,7 @@ export const NavBarDesktop = () => {
                     <div className="flex flex-col justify-around text-center h-full w-full">
                         <Link to="/" id={idIcons[0]} className="flex justify-center"> <HomeIcon/> </Link>
                         <Link to="/billeterie" id={idIcons[1]}>Billeterie</Link>
-                        <Link to="/programmation" id={idIcons[2]}>Programmation</Link>
+                        <Link to="/discover/artists" id={idIcons[2]}>Programmation</Link>
                         <Link to="/carte" id={idIcons[3]}>Carte</Link>
                         <Link to="/infos-pratiques" id={idIcons[4]}>Infos pratiques</Link>
                         <Link to="/partenaires" id={idIcons[5]}>Partenaires</Link>
