@@ -41,25 +41,25 @@ const App = () => {
       <div className='h-screen w-screen'>
 
         <Router>
-          {deviceUsed === 'mobile' ? <NavBarMobile/> : <NavBarDesktop/>}
+          {deviceUsed === 'mobile' ? <NavBarMobile /> : <NavBarDesktop />}
           <Routes>
-            <Route path='/*' element={<Page404/>} />
+            <Route path='/*' element={<Page404 />} />
             <Route path="/" element={
               <MainContent>
-                <HomeContent/>
+                <HomeContent />
               </MainContent>
             } />
-            <Route path='/discover' element={<Discover/>}/>
-              <Route path='/discover/programmation' element={<Programmation/>} />
-              <Route path='/discover/artists' element={<ArtistCard/>} />            
-            <Route path='info-pratiques' element={ <InfoPratiques/> }/>
-              <Route path='FAQ' element={ <FaqComponent/> } />
-              <Route path='alertes' element={<Alertes/>} />
-              <Route path='contact' element={ <Contact/> } />
-              <Route path='partenaires' element={<PartenairesComponent/>} />
-            <Route path='map' element={<Map/>} />
-            <Route path='billetterie' element={<Billetterie/>}/>
-            <Route path='playground' element={<Playground/>}/>
+            <Route path='/discover' element={<Discover />} />
+            <Route path='/discover/programmation' element={<Programmation />} />
+            <Route path='/discover/artists' element={<ArtistCard />} />
+            <Route path='infos-pratiques' element={<InfoPratiques deviceUsed={deviceUsed} />} />
+            <Route path='FAQ' element={<FaqComponent />} />
+            <Route path='alertes' element={<Alertes />} />
+            <Route path='contact' element={<Contact />} />
+            <Route path='partenaires' element={<PartenairesComponent />} />
+            <Route path='map' element={<Map />} />
+            <Route path='billetterie' element={<Billetterie />} />
+            <Route path='playground' element={<Playground />} />
           </Routes>
         </Router>
         <ThemeBtn />
