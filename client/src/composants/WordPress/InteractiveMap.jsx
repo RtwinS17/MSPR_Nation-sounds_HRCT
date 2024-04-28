@@ -1,27 +1,30 @@
-import React from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const InteractiveMap = () => {
-  // Position de départ pour la carte
-  const centerPosition = [45.4215, -75.6972];
+    const [mapContent, setMapContent] = useState('');
 
-  // Remplacez cela par vos propres données récupérées de l'API WordPress
-  const markerPosition = [45.4215, -75.6972];
-  const markerTitle = "Titre de l'emplacement";
-  const markerAddress = "Adresse de l'emplacement";
+    useEffect(() => {
+        axios.get('https://nationsounds.online/carte-du-concert/')
+            .then(response => {
+                const pageContent = response.data;
+                const regex = /\[google_map_easy id="(\d+)"\]/g;
+                const match = regex.exec(pageContent);
+                if (match && match[1]) {
+                    setMapContent(`<iframe src="https://www.google.com/maps/d/embed?mid=${match[1]}" width="640" height="480"></iframe>`);
+                }
+            })
+            .catch(error => {
+                console.error('Erreur lors de la récupération du contenu de la carte :', error);
+            });
+    }, []);
 
-  return (
-    <MapContainer center={centerPosition} zoom={15} scrollWheelZoom={true} style={{ height: '480px', width: '100%' }}>
-      <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-      <Marker position={markerPosition}>
-        <Popup>
-          <strong>{markerTitle}</strong><br />
-          {markerAddress}
-        </Popup>
-      </Marker>
-    </MapContainer>
-  );
+    return (
+        <div>
+            <h1>Carte interactive du concert</h1>
+            <div dangerouslySetInnerHTML={{ __html: mapContent }} />
+        </div>
+    );
 };
 
 export default InteractiveMap;
