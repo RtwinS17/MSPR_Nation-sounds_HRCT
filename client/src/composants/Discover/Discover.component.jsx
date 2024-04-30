@@ -30,7 +30,7 @@ const artists = [
 export const Discover = () => {
     return (
         <MainContent>
-            <div className="h-full grid md:grid-cols-3 grid-cols-1 gap-4 p-2 overflow-y-auto [&>*]:h-full [&>*]:flex [&>*]:flex-col [&>*]:justify-between [&>*]:gap-4 discoverContainer">
+            <div className="h-full grid md:grid-cols-2 grid-cols-1 gap-4 p-2 overflow-y-auto [&>*]:h-full [&>*]:flex [&>*]:flex-col [&>*]:justify-between [&>*]:gap-4 discoverContainer">
                 <article>
                     <h2 className="text-center p-2"> Programmation </h2>
                     <section className="mx-4 grid grid-cols-1 xl:grid-cols-2 gap-8 xl:gap-2 text-center progSection">
@@ -62,15 +62,6 @@ export const Discover = () => {
                         <Link to='./artists' className="p-2 btn-accent"> Voir tout </Link>
                     </div>
                 </article>
-                <article>
-                    <h2 className="text-center p-2"> Genres </h2>
-                    <section className="h-full mx-4">
-                    </section>
-                    <div className="text-end p-2">
-                        <Link to='./genres' className="p-2 btn-accent"> Voir tout </Link>
-                    </div>
-                </article>
-
             </div>
         </MainContent>
     )

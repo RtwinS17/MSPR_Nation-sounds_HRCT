@@ -11,7 +11,7 @@ export const Playground = () => {
     // IMPORTANT : Il faut avoir une [] en 2nd paramètre --> Sinon 
     useEffect(() => {
         dispatch(fetchAlertes());
-    },[]);
+    },[data]);
 
     if (loading) {
         return <Loading />

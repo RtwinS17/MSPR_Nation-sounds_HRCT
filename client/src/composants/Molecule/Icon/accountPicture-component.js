@@ -6,7 +6,7 @@ import accountLogNight from './../../../ressources/accountIcon_night.svg';
 import './icons.style.css';
 
 function AccountIcon({id=""}) {
-  let theme = useSelector(store => store.theme.value)
+  let theme = useSelector(store => store.user.configuration.theme)
   // Import result is the URL of your image
   return (
     <div id={id} className='icon-user-logIn w-[50px] btn-secondary pointer-events-auto'>

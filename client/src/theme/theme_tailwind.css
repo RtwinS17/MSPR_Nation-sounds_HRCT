@@ -24,6 +24,7 @@
         --black-text: #0c0c0c;
         --main-text: #0f415a;
         --secondary-text: #fbab32;
+        --text-hover-accent: #D22F4F;
 
         /* customWhite section */
         --white-0: #fafafa;
@@ -81,6 +82,8 @@
         --black-text: var(--main-text-dark);
         --main-text: var(--main-text-dark);
         --secondary-text: var(--main-text-dark);
+        --text-hover-accent: #721a2c;
+
 
         /* customWhite section */
         --white-0: #0c0c0c;
