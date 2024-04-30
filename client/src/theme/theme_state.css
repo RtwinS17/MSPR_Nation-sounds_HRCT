@@ -5,6 +5,8 @@
         --info-alert: #f25652;
         --info-warning: #dc7208;
         --info-danger: #C81414;
+
+        --info-alert-hover: #d34f4b;
     }
 
     .dark-theme {
@@ -14,4 +16,7 @@
         --info-alert: #61211f;
         --info-warning: #613203;
         --info-danger: #670f0f;
+
+        --info-alert-hover: #752724;
+
     }
