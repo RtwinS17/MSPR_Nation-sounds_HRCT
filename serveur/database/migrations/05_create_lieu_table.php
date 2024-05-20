@@ -9,8 +9,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('lieu', function (Blueprint $table) {
-            $table->increments('Id');
-            $table->string('Localisation_GPS');
+            $table->id();
+            $table->timestamps();
+            $table->decimal('latitude', 10, 8)->nullable();
+            $table->decimal('longitude', 11, 8)->nullable();
         });
     }
 
@@ -19,4 +21,3 @@ return new class extends Migration
         Schema::dropIfExists('lieu');
     }
 };
-

@@ -9,12 +9,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('scene', function (Blueprint $table) {
-            $table->increments('Id');
-            $table->string('Nom');
-            $table->string('Type');
-            $table->unsignedInteger('Id_lieu');
-
-            $table->foreign('Id_lieu')->references('Id')->on('lieu')->onDelete('cascade');
+            $table->id();
+            $table->string('Nom', 191);
+            $table->string('Type', 191);
+            $table->unsignedBigInteger('Id_lieu');
+            $table->foreign('Id_lieu')->references('id')->on('lieu');
+            $table->timestamps();
         });
     }
 

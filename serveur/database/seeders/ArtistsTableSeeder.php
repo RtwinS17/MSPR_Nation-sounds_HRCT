@@ -32,9 +32,8 @@ class ArtistsTableSeeder extends Seeder
         ];
 
         // Insérer chaque artiste dans la base de données
-        foreach ($artists as $artistData) {
-            Artist::create($artistData);
-        }
+        Artist::insert($artists);
+
     }
     }
 

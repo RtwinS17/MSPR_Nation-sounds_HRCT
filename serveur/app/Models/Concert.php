@@ -1,33 +1,30 @@
 <?php
 
-/**
- * Created by Reliese Model.
- */
-
 namespace App\Models;
 
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * Class Concert
  * 
  * @property int $id
  * @property string $Groupe
- * @property int $Horaires
- * @property string $Scene
+ * @property string $Duree // Nouvelle propriété
+ * @property string $Horaire // Nouvelle propriété
+ * @property int $scene_id // Nouvelle propriété : clé étrangère
  * @property string $Descriptif
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
  * @property int|null $Id_lieu
+ * 
+ * @property Scene|null $Id_scene // Relation avec le modèle Scene
  *
  * @package App\Models
  */
 class Concert extends Model
 {
-	use HasFactory;
 	protected $table = 'concert';
+	protected $primaryKey = 'ID';
 
 	protected $casts = [
 		'Horaires' => 'int',
@@ -36,19 +33,15 @@ class Concert extends Model
 
 	protected $fillable = [
 		'Groupe',
+		'Duree',
 		'Horaires',
-		'Scene',
+		'scene_id',
 		'Descriptif',
 		'Id_lieu'
 	];
 
-	public function genres()
+    public function scene()
     {
-        return $this->hasMany(Genre::class, 'id_concert');
-    }
-
-    public function commentaires()
-    {
-        return $this->hasMany(Commentaire::class, 'id_concert');
+        return $this->belongsTo(Scene::class, 'scene_id');
     }
 }

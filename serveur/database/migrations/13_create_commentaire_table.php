@@ -4,14 +4,14 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCommentaireTable extends Migration
+return new class extends Migration
 {
     public function up()
     {
         Schema::create('commentaire', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('Id_user');
-            $table->foreign('Id_user')->references('id')->on('utilisateurs');
+            $table->foreign('Id_user')->references('id')->on('users');
             $table->unsignedBigInteger('Id_concert');
             $table->foreign('Id_concert')->references('id')->on('concert');
             $table->text('Texte');
@@ -25,4 +25,4 @@ class CreateCommentaireTable extends Migration
     {
         Schema::dropIfExists('commentaire');
     }
-}
+};
