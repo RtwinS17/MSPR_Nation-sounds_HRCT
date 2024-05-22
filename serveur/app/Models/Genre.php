@@ -15,10 +15,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * 
  * @property int $id
  * @property string $Nom
- * @property int $Id_concert
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * @property int|null $Id_lieu
  *
  * @package App\Models
  */

@@ -9,11 +9,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('genre', function (Blueprint $table) {
-            $table->increments('Id');
-            $table->string('Nom');
-            $table->unsignedInteger('Id_concert');
-
-            $table->foreign('Id_concert')->references('ID')->on('concert')->onDelete('cascade');
+            $table->id();
+            $table->string('Nom', 191);
+            $table->timestamps();
         });
     }
 
@@ -22,4 +20,3 @@ return new class extends Migration
         Schema::dropIfExists('genre');
     }
 };
-

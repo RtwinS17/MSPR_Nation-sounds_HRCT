@@ -12,6 +12,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        $this->call(ArtistsTableSeeder::class);
+        $this->call(GenreSeeder::class);
+        $this->call(LieuSeeder::class);
+        $this->call(SceneSeeder::class);
+        $this->call(ConcertSeeder::class);
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([

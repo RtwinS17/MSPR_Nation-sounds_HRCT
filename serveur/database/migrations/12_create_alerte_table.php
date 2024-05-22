@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAlerteTable extends Migration
+return new class extends Migration
 {
     public function up()
     {
@@ -15,7 +15,7 @@ class CreateAlerteTable extends Migration
             $table->text('Texte');
             $table->timestamps();
             $table->unsignedBigInteger('Id_user')->nullable();
-            $table->foreign('Id_user')->references('id')->on('utilisateurs');
+            $table->foreign('Id_user')->references('id')->on('users');
         });
     }
 
@@ -23,5 +23,4 @@ class CreateAlerteTable extends Migration
     {
         Schema::dropIfExists('alerte');
     }
-}
-
+};
