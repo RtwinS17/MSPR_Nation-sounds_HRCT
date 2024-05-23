@@ -20,6 +20,8 @@ import PartenairesComponent from './composants/Info-pratiques/Partenaires/Parten
 import Map from './composants/Map/map';
 import { Billetterie } from './composants/Billetterie/Billetterie.component';
 import { Playground } from './composants/Playground/Playground.component';
+import Footer from './composants/Permanent/Footer/footer';
+import ConditionsPage from './composants/WordPress/CondGenWP';
 
 
 
@@ -60,11 +62,13 @@ const App = () => {
             <Route path='map' element={<Map />} />
             <Route path='billetterie' element={<Billetterie />} />
             <Route path='playground' element={<Playground />} />
+            <Route path='conditions' element={<ConditionsPage />} />
           </Routes>
         </Router>
         <ThemeBtn />
         <Diaporamahome />
         <HomeLogo />
+        <Footer />
       </div>
     </>
   );
