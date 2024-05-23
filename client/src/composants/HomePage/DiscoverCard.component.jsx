@@ -3,22 +3,19 @@ import React from "react";
 import './DiscoverCard.style.css';
 import { Link } from "react-router-dom";
 
-export const DiscoverCards = ({ title = "Titre à ajouter", text = "texte à ajouter", linkText = "En savoir plus", imageSrc = "",linkTo="" }) => {
+export const DiscoverCards = ({ title = "Titre à ajouter", linkText = "En savoir plus", imageSrc = "", linkTo = "" }) => {
     return (
-        <>
-            <div className="flex flex-col h-full p-2 rounded-xl cardDiscover-container text-center">
 
-                <article className="flex flex-col sm:flex-row h-full">
-                    <article className="sm:basis-4/6 flex flex-col justify-center sm:justify-between sm:pl-2">
-                        <h2 className="block text-center md:text-start my-1"> {title} </h2>
-                        <span className="hidden sm:block sm:h-full text-sm"> {text} </span>
-                        <div className="flex justify-center sm:justify-end pt-2 mt-4 sm:mt-0">
-                            <Link to={linkTo} className="px-4 py-2 btn-primary mr-3 text-xs"> {linkText} </Link>
-                        </div>
-                    </article>
-                    <img src={imageSrc} alt="Festival" className="basis-2/6 w-32"/>
-                </article>
+        <div className="cardDiscover-container grow h-full flex flex-col sm:flex-row rounded-lg overflow-hidden">
+            <div className="flex flex-col shrink justify-around h-full sm:w-[50%] ">
+                <h3 className="font-bold text-xl text-center cardDiscoverTitle p-2"> {title} </h3>
+                <div className="flex justify-center">
+                    <Link className="text-center p-3 btn-primary" to={linkTo}>{linkText}</Link>
+                </div>
+
             </div>
-        </>
+            <div className="h-full sm:max-w-[50%] hidden sm:block"><img src={imageSrc} /> </div>
+        </div>
+
     )
 } 
