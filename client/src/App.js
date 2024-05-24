@@ -41,8 +41,9 @@ const App = () => {
   return (
     <>
       <div className='h-screen w-screen'>
-
         <Router>
+        <Diaporamahome />
+        <HomeLogo />
           {deviceUsed === 'mobile' ? <NavBarMobile /> : <NavBarDesktop />}
           <Routes>
             <Route path='/*' element={<Page404 />} />
@@ -66,8 +67,6 @@ const App = () => {
           </Routes>
         </Router>
         <ThemeBtn />
-        <Diaporamahome />
-        <HomeLogo />
         <Footer />
       </div>
     </>
