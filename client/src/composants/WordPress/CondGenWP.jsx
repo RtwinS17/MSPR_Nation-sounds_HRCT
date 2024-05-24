@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { MainContent } from '../Permanent/homeCard.component';
-import './CondGenWP.style.css'
-    
+import './CondGenWP.style.css';
+
+const decodeHTML = (html) => {
+  const txt = document.createElement("textarea");
+  txt.innerHTML = html;
+  return txt.value;
+};
+
 const ConditionsPage = () => {
   const [article, setArticle] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -34,17 +40,15 @@ const ConditionsPage = () => {
   }
 
   return (
-   <MainContent> 
-     <div className=""> 
-      <div className="mx-auto px-4 py-8">
-        <h1 className="text-2xl font-bold mb-4">{article.title.rendered}</h1>
-        <div className="text-base text-white"
-          dangerouslySetInnerHTML={{ __html: article.content.rendered }}
-        ></div>
+    <MainContent>
+      <div className="">
+        <div className="mx-auto px-4 py-8">
+          <h1 className="text-2xl font-bold mb-4">{decodeHTML(article.title.rendered)}</h1>
+          <div className="text-base text-white" dangerouslySetInnerHTML={{ __html: article.content.rendered }}></div>
+        </div>
       </div>
-    </div>
-    </MainContent> 
-    );
+    </MainContent>
+  );
 };
 
 export default ConditionsPage;
