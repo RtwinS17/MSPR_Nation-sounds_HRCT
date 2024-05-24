@@ -22,6 +22,7 @@ import { Billetterie } from './composants/Billetterie/Billetterie.component';
 import { Playground } from './composants/Playground/Playground.component';
 import Footer from './composants/Permanent/Footer/footer';
 import ConditionsPage from './composants/WordPress/CondGenWP';
+import DetailsArtistesWP from './composants/WordPress/DetailArtistesWP';
 
 
 
@@ -54,7 +55,7 @@ const App = () => {
             } />
             <Route path='/discover' element={<Discover />} />
             <Route path='/discover/programmation' element={<Programmation />} />
-            <Route path='/discover/artists' element={<ArtistCard />} />
+            <Route path='/discover/artists' element={<DetailsArtistesWP />} />
             <Route path='infos-pratiques' element={<InfoPratiques deviceUsed={deviceUsed} />} />
             <Route path='FAQ' element={<FaqComponent />} />
             <Route path='alertes' element={<Alertes />} />
