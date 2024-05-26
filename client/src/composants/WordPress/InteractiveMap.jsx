@@ -14,8 +14,9 @@ const InteractiveMap = () => {
                     setMapContent(`<iframe src="https://www.google.com/maps/d/embed?mid=${match[1]}" width="640" height="480"></iframe>`);
                 }
             })
-            .catch(error => {
-                console.error('Erreur lors de la récupération du contenu de la carte :', error);
+            .catch(error => { 
+
+                console.error('Erreur lors de la écupération du contenu de la carte :', error);
             });
     }, []);
 
