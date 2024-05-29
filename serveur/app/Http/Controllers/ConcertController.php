@@ -26,11 +26,11 @@ class ConcertController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'Id_lieu' => 'required',
-            'Groupe' => 'required',
-            'Horaires' => 'required',
-            'Scene' => 'required',
-            'Descriptif' => 'required',
+            'Groupe' => 'required|string',
+            'Duree' => 'required|string',
+            'Horaire' => 'required|date',
+            'scene_id' => 'required|exists:scene,id',
+            'Descriptif' => 'required|string'
         ]);
 
         if ($validator->fails()) {
@@ -44,11 +44,11 @@ class ConcertController extends Controller
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'Id_lieu' => 'required',
-            'Groupe' => 'required',
-            'Horaires' => 'required',
-            'Scene' => 'required',
-            'Descriptif' => 'required',
+            'Groupe' => 'string',
+            'Duree' => 'string',
+            'Horaire' => 'date',
+            'scene_id' => 'exists:scene,id',
+            'Descriptif' => 'string'
         ]);
 
         if ($validator->fails()) {

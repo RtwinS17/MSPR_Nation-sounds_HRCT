@@ -21,7 +21,6 @@ class ConcertSeeder extends Seeder
                 'Horaire' => '2024-06-15 20:00:00',
                 'scene_id' => 1,
                 'Descriptif' => 'Legendary rock band performing their greatest hits.',
-                'Id_lieu' => 1,
             ],
             [
                 'Groupe' => 'Daft Punk',
@@ -29,7 +28,6 @@ class ConcertSeeder extends Seeder
                 'Horaire' => '2024-06-16 22:00:00',
                 'scene_id' => 1,
                 'Descriptif' => 'Electronic music duo with a spectacular light show.',
-                'Id_lieu' => 1,
             ],
             [
                 'Groupe' => 'Coldplay',
@@ -37,7 +35,6 @@ class ConcertSeeder extends Seeder
                 'Horaire' => '2024-06-17 21:00:00',
                 'scene_id' => 1,
                 'Descriptif' => 'British rock band with an amazing live performance.',
-                'Id_lieu' => 1,
             ],
             [
                 'Groupe' => 'Royal Republic',
@@ -45,7 +42,6 @@ class ConcertSeeder extends Seeder
                 'Horaire' => '2024-06-15 18:00:00',
                 'scene_id' => 1,
                 'Descriptif' => 'Rock band from Sweden',
-                'Id_lieu' => 1,
             ],
             [
                 'Groupe' => 'Shakaponk',
@@ -53,7 +49,6 @@ class ConcertSeeder extends Seeder
                 'Horaire' => '2024-06-15 20:00:00',
                 'scene_id' => 1,
                 'Descriptif' => 'French rock band',
-                'Id_lieu' => 1,
             ],
             [
                 'Groupe' => 'The Offspring',
@@ -61,7 +56,6 @@ class ConcertSeeder extends Seeder
                 'Horaire' => '2024-06-15 22:00:00',
                 'scene_id' => 2,
                 'Descriptif' => 'American punk rock band',
-                'Id_lieu' => 1,
             ],
             [
                 'Groupe' => 'The Prodigy',
@@ -69,7 +63,6 @@ class ConcertSeeder extends Seeder
                 'Horaire' => '2024-06-16 21:00:00',
                 'scene_id' => 3,
                 'Descriptif' => 'English electronic music group',
-                'Id_lieu' => 1,
             ],
             [
                 'Groupe' => 'The Chemical Brothers',
@@ -77,7 +70,6 @@ class ConcertSeeder extends Seeder
                 'Horaire' => '2024-06-16 23:00:00',
                 'scene_id' => 3,
                 'Descriptif' => 'English electronic music duo',
-                'Id_lieu' => 1,
             ],
             [
                 'Groupe' => 'The Glitch Mob',
@@ -85,7 +77,6 @@ class ConcertSeeder extends Seeder
                 'Horaire' => '2024-06-16 17:00:00',
                 'scene_id' => 3,
                 'Descriptif' => 'American electronic music trio',
-                'Id_lieu' => 1,
             ],
             [
                 'Groupe' => 'The Bloody Beetroots',
@@ -93,7 +84,6 @@ class ConcertSeeder extends Seeder
                 'Horaire' => '2024-06-16 19:00:00',
                 'scene_id' => 3,
                 'Descriptif' => 'Italian electronic dance music group',
-                'Id_lieu' => 1,
             ],
             [
                 'Groupe' => 'The Subways',
@@ -101,7 +91,6 @@ class ConcertSeeder extends Seeder
                 'Horaire' => '2024-06-15 15:00:00',
                 'scene_id' => 2,
                 'Descriptif' => 'English rock band',
-                'Id_lieu' => 1,
             ],
             [
                 'Groupe' => 'The Hives',
@@ -109,7 +98,6 @@ class ConcertSeeder extends Seeder
                 'Horaire' => '2024-06-15 17:00:00',
                 'scene_id' => 2,
                 'Descriptif' => 'Swedish rock band',
-                'Id_lieu' => 1,
             ],
             [
                 'Groupe' => 'The Strokes',
@@ -117,7 +105,6 @@ class ConcertSeeder extends Seeder
                 'Horaire' => '2024-06-15 19:00:00',
                 'scene_id' => 2,
                 'Descriptif' => 'American rock band',
-                'Id_lieu' => 1,
             ],
             [
                 'Groupe' => 'The Raconteurs',
@@ -125,7 +112,6 @@ class ConcertSeeder extends Seeder
                 'Horaire' => '2024-06-15 21:00:00',
                 'scene_id' => 2,
                 'Descriptif' => 'American rock band',
-                'Id_lieu' => 1,
             ],
         ];
         Concert::insert($concerts);
