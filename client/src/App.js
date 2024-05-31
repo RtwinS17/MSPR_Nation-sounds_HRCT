@@ -24,6 +24,11 @@ import { AdminProgrammation } from './composants/admin/programmation.component';
 import { CreateConcert } from './composants/admin/Management/CreateConcert.component';
 import { EditConcert } from './composants/admin/Management/EditConcert.component';
 
+import Footer from './composants/Permanent/Footer/footer';
+import ConditionsPage from './composants/WordPress/CondGenWP';
+import DetailsArtistesWP from './composants/WordPress/DetailArtistesWP';
+
+
 
 
 
@@ -42,8 +47,9 @@ const App = () => {
   return (
     <>
       <div className='h-screen w-screen'>
-
         <Router>
+        <Diaporamahome />
+        <HomeLogo />
           {deviceUsed === 'mobile' ? <NavBarMobile /> : <NavBarDesktop />}
           <Routes>
             <Route path='/*' element={<Page404 />} />
@@ -54,7 +60,7 @@ const App = () => {
             } />
             <Route path='/discover' element={<Discover />} />
             <Route path='/discover/programmation' element={<Programmation />} />
-            <Route path='/discover/artists' element={<ArtistCard />} />
+            <Route path='/discover/artists' element={<DetailsArtistesWP />} />
             <Route path='infos-pratiques' element={<InfoPratiques deviceUsed={deviceUsed} />} />
             <Route path='FAQ' element={<FaqComponent />} />
             <Route path='alertes' element={<Alertes />} />
@@ -66,11 +72,11 @@ const App = () => {
             <Route path='admin/create_concert' element={<CreateConcert/>}/>
             <Route path='admin/edit_concert' element={<EditConcert/>}/>
             <Route path='playground' element={<Playground />} />
+            <Route path='conditions' element={<ConditionsPage />} />
           </Routes>
         </Router>
         <ThemeBtn />
-        <Diaporamahome />
-        <HomeLogo />
+        <Footer />
       </div>
     </>
   );
