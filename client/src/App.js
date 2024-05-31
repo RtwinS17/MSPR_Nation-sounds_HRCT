@@ -20,6 +20,8 @@ import PartenairesComponent from './composants/Info-pratiques/Partenaires/Parten
 import Map from './composants/Map/map';
 import { Billetterie } from './composants/Billetterie/Billetterie.component';
 import { Playground } from './composants/Playground/Playground.component';
+import { AdminProgrammation } from './composants/admin/programmation.component';
+import { CreateConcert } from './composants/admin/Management/CreateConcert.component';
 
 
 
@@ -59,6 +61,8 @@ const App = () => {
             <Route path='partenaires' element={<PartenairesComponent />} />
             <Route path='map' element={<Map />} />
             <Route path='billetterie' element={<Billetterie />} />
+            <Route path='admin/programmation' element={<AdminProgrammation/>}/>
+            <Route path='admin/create_concert' element={<CreateConcert/>}/>
             <Route path='playground' element={<Playground />} />
           </Routes>
         </Router>
