@@ -17,7 +17,7 @@ function Diaporamahome() {
 
   return (
 
-    <div className="fixed top-0 w-full h-40 z-0">
+    <div className="fixed top-0 w-full h-28 z-0">
       <img src={images[indexActuel]} alt={`Diapositive ${indexActuel + 1}`} className="w-full h-full object-cover" />
     </div>
   );
