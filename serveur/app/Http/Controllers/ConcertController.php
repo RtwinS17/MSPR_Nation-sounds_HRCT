@@ -8,12 +8,14 @@ use Illuminate\Support\Facades\Validator;
 
 class ConcertController extends Controller
 {
+    // Get all concert
     public function index()
     {
         $concerts = Concert::all();
         return response()->json($concerts);
     }
 
+    // Get concert by ID
     public function show($id)
     {
         $concert = Concert::find($id);
@@ -23,6 +25,7 @@ class ConcertController extends Controller
         return response()->json($concert);
     }
 
+    // Create Concert
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -41,6 +44,7 @@ class ConcertController extends Controller
         return response()->json($concert, 201);
     }
 
+    // Edit Concert
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
@@ -64,6 +68,7 @@ class ConcertController extends Controller
         return response()->json($concert);
     }
 
+    // Delete Concert
     public function destroy($id)
     {
         $concert = Concert::find($id);
