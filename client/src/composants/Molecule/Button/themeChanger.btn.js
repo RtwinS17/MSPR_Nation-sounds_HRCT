@@ -11,7 +11,7 @@ export const ThemeBtn = () => {
   const theme = useSelector((store) => store.user.configuration.theme)
     return (
     <>
-    <button className="btn-accent theme-btn fixed top-5 right-4 z-[20]" onClick={() => dispatch(switchTheme())}>
+    <button className="btn-accent theme-btn fixed top-5 left-4 z-[20]" onClick={() => dispatch(switchTheme())}>
       {theme === 'day' ? <DarkIcon id="darkIcon-id"/> : <LightIcon id="lightIcon-id"/> }
     </button>
   

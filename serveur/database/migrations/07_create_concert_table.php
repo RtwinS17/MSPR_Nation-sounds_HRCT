@@ -15,7 +15,6 @@ return new class extends Migration
             $table->dateTime('Horaire');
             $table->unsignedBigInteger('scene_id');
             $table->text('Descriptif');
-            $table->unsignedBigInteger('Id_lieu')->nullable();
             $table->timestamps();
 
             $table->foreign('scene_id')->references('id')->on('scene');

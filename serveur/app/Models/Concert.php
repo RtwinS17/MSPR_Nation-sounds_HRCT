@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -11,34 +9,31 @@ use Illuminate\Database\Eloquent\Model;
  * 
  * @property int $id
  * @property string $Groupe
- * @property string $Duree // Nouvelle propriété
- * @property string $Horaire // Nouvelle propriété
- * @property int $scene_id // Nouvelle propriété : clé étrangère
+ * @property string $Duree
+ * @property string $Horaire
+ * @property int $scene_id
  * @property string $Descriptif
- * @property int|null $Id_lieu
  * 
- * @property Scene|null $Id_scene // Relation avec le modèle Scene
+ * @property Scene|null $scene
  *
  * @package App\Models
  */
 class Concert extends Model
 {
-	protected $table = 'concert';
-	protected $primaryKey = 'ID';
+    protected $table = 'concert'; // Assurez-vous que le nom de table est correct
+    protected $primaryKey = 'id'; // Assurez-vous que la clé primaire est correcte
 
-	protected $casts = [
-		'Horaires' => 'int',
-		'Id_lieu' => 'int'
-	];
+    protected $casts = [
+        'scene_id' => 'int'
+    ];
 
-	protected $fillable = [
-		'Groupe',
-		'Duree',
-		'Horaires',
-		'scene_id',
-		'Descriptif',
-		'Id_lieu'
-	];
+    protected $fillable = [
+        'Groupe',
+        'Duree',
+        'Horaire',
+        'scene_id',
+        'Descriptif'
+    ];
 
     public function scene()
     {

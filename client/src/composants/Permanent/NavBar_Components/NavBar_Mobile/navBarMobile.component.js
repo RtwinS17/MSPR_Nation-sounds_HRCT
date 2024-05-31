@@ -19,7 +19,7 @@ const NavBarMobile = () => {
   }
   return (
     <>
-      <div className='fixed flex justify-end w-[90%] pointer-events-none h-[50px] top-[90%] left-6 z-10'>
+      <div className='fixed flex justify-end w-[90%] pointer-events-none h-[50px] top-5 left-4 z-10'>
         
     
         <div onClick={toggleMenu}>

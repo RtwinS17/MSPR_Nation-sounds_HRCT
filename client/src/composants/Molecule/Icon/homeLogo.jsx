@@ -4,6 +4,7 @@ import "./icons.style.css";
 
 function HomeLogo() {
   return (
+
     <div className="absolute flex w-full justify-center top-5 z-10">
       <div className="">
       
