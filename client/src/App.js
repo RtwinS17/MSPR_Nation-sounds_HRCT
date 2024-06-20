@@ -46,7 +46,7 @@ const App = () => {
 
   return (
     <>
-      <div className='w-screen h-screen flex flex-col justify-between overflow-y-scroll'>
+      <div className='h-screen w-screen'>
         <Router>
         <Diaporamahome />
         <HomeLogo />
