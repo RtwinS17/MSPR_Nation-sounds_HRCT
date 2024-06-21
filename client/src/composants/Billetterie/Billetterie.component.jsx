@@ -1,4 +1,3 @@
-import { MainContent } from "../Permanent/homeCard.component"
 import { Link } from "react-router-dom"
 
 
@@ -6,7 +5,6 @@ import './Billetterie.style.css';
 
 export const Billetterie = () => {
     return (
-        <MainContent>
             <div className="h-full flex flex-col justify-around text-center">
                 <h1 className="text-4xl p-4 rounded-3xl billetterieTitle"> Réservez votre accès au festival ! </h1>
                 <div>
@@ -20,6 +18,5 @@ export const Billetterie = () => {
                     </ul>
                 </section>
             </div>
-        </MainContent>
     )
 }

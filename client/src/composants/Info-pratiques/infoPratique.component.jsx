@@ -1,4 +1,3 @@
-import { MainContent } from "../Permanent/homeCard.component";
 import './infoPratique.style.css';
 
 import { Link } from "react-router-dom";
@@ -9,7 +8,6 @@ import partenaireIcon from './../../ressources/partenaireIcon.jpg';
 
 export const InfoPratiques = ({deviceUsed = 'mobile'}) => {
     return (
-        <MainContent>
               <div className="flex flex-col h-full p-4 gap-8 justify-around sm:grid sm:grid-cols-2 infoContainer text-center">
                 <section>
                     <h3 className="w-full font-bold"> ALERTES </h3>
@@ -40,6 +38,5 @@ export const InfoPratiques = ({deviceUsed = 'mobile'}) => {
                     }
                 </section>
               </div>
-        </MainContent>
     )
 }

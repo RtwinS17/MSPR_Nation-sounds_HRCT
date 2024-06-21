@@ -16,7 +16,7 @@ function Diaporamahome() {
   }, [indexActuel, images.length]);
 
   return (
-    <div className="relative top-0 w-full h-48">
+    <div className="relative top-0 w-full h-32">
       <img src={images[indexActuel]} alt={`Diapositive ${indexActuel + 1}`} className="w-full h-full object-cover" />
     </div>
   );

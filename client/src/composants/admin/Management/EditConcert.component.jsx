@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { MainContent } from '../../Permanent/homeCard.component';
 import './EditConcert.style.css';
 import { editAdminConcert } from '../../../Service/adminAPI/adminAPI.service';
 
@@ -34,7 +33,6 @@ export const EditConcert = () => {
     };
 
     return (
-        <MainContent>
             <div className='h-full flex flex-col gap-2 overflow-y-auto'>
                 <h1 className="text-2xl font-bold">Éditer le Concert</h1>
                 <form onSubmit={handleSubmit} className="grow flex flex-col justify-between text-center editConcertForm">
@@ -105,6 +103,5 @@ export const EditConcert = () => {
                         <button type="submit" className="btn-accent p-2"> Enregistrer </button>
                 </form>
             </div>
-        </MainContent>
     );
 };

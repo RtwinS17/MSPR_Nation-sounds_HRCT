@@ -1,12 +1,10 @@
 import React from 'react';
 import './faqComponent.style.css';
 import faqQuestions from './faqQuestions';
-import { MainContent } from '../../Permanent/homeCard.component';
 import { Link } from 'react-router-dom';
 
 const FaqComponent = () => {
   return (
-    <MainContent>
       <section className='h-full flex flex-col gap-3 overflow-y-auto'>
         <div className='p-6 sm:p-8 bg-white lg:pl-20'>
           <div className='text-left'>
@@ -36,7 +34,6 @@ const FaqComponent = () => {
           </p>
         </div>
       </section>
-    </MainContent>
   );
 };
 

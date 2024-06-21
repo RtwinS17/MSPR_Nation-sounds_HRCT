@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { MainContent } from "../../Permanent/homeCard.component";
 import './Contact.style.css';
 
 export const Contact = () => {
@@ -46,7 +45,7 @@ export const Contact = () => {
     };
 
     return (
-        <MainContent>
+
             <div className="h-full flex flex-col gap-2 p-2">
                 <h1 className="text-2xl font-bold mb-2">Contactez-nous</h1>
                 <form onSubmit={handleSubmit} className="h-full flex flex-col gap-4 text-center contactForm">
@@ -93,6 +92,5 @@ export const Contact = () => {
                     <button type="submit" className="btn-accent p-2">Envoyer</button>
                 </form>
             </div>
-        </MainContent>
     );
 };

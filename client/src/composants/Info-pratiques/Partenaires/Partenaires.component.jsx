@@ -1,11 +1,9 @@
 import React from "react";
 import "./partenairesComponent.style.css";
 import partenairesListe from "./partenairesListe";
-import { MainContent } from "../../Permanent/homeCard.component";
 
 const PartenairesComponent = () => {
     return (
-        <MainContent>
             <section className= " h-full grid grid-cols-1 gap-4 p-2 overflow-y-auto [&>*]:h-full [&>*]:flex [&>*]:flex-col [&>*]:justify-between [&>*]:gap-4">
         <div className="text-left">
             <h1 className="mb-6 font-extrabold text-4xl">Partenaires</h1>
@@ -23,7 +21,6 @@ const PartenairesComponent = () => {
             </div>
         </div>
         </section>
-        </MainContent>
     );
     }
 

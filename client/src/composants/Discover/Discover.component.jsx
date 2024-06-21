@@ -1,4 +1,3 @@
-import { MainContent } from "../Permanent/homeCard.component";
 import { Link } from "react-router-dom"
 import './Discover.style.css';
 
@@ -29,7 +28,6 @@ const artists = [
 
 export const Discover = () => {
     return (
-        <MainContent>
             <div className="h-full grid md:grid-cols-2 grid-cols-1 gap-4 p-2 overflow-y-auto [&>*]:h-full [&>*]:flex [&>*]:flex-col [&>*]:justify-between [&>*]:gap-4 discoverContainer">
                 <article>
                     <h2 className="text-center p-2"> Programmation </h2>
@@ -63,6 +61,5 @@ export const Discover = () => {
                     </div>
                 </article>
             </div>
-        </MainContent>
     )
 }

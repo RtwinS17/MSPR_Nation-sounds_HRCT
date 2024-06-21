@@ -23,7 +23,7 @@ export const HomeContent = () => {
                     <DiscoverCards title="PROGRAMMATION" text={textDiscover.Programmation} linkText="Découvrir notre festival" linkTo="/discover" imageSrc={ProgrammationImage} />
               
               
-                    <DiscoverCards title="BILLETTERIE" text={textDiscover.Billetterie} linkText="Acheter un billet" linkTo="/billeterie" imageSrc={BilletterieImage} />
+                    <DiscoverCards title="BILLETTERIE" text={textDiscover.Billetterie} linkText="Acheter un billet" linkTo="/billetterie" imageSrc={BilletterieImage} />
            
             </div>
         </>

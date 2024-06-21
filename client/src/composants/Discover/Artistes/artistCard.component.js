@@ -1,11 +1,10 @@
 import React from "react";
 import './artistCard.style.css'
 import ArtistesCard from "./../../../ressources/ArtistesCard.jpeg";
-import { MainContent } from "../../Permanent/homeCard.component";
 
 export const ArtistCard = () => {
     return (
-      <MainContent>
+
     <div>
        <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
         <div className="relative bg-white h-10">
@@ -34,7 +33,6 @@ export const ArtistCard = () => {
         
     </div>
     </div>
-    </MainContent>
     
 )
 }

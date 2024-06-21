@@ -5,7 +5,6 @@ import MarkerClusterGroup from 'react-leaflet-cluster'
 import './map.style.css';
 import MapFilter from './mapFilter';
 import iconMappings from './iconMappings';
-import { MainContent } from '../Permanent/homeCard.component';
 //import LocationMarker from './locationMarker';
 
 const Map = () => {
@@ -21,7 +20,6 @@ const Map = () => {
   const [showMedical, setShowMedical] = useState(true);
 
   return (
-    <MainContent>
       <div className='sm:w-full'>
         <MapFilter
           showScene={showScene}
@@ -67,7 +65,6 @@ const Map = () => {
           </MarkerClusterGroup>
         </MapContainer>
       </div>
-    </MainContent>
   );
 };
 

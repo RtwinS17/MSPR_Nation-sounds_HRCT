@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from 'react-router-dom';
 import './navBarDesktop.style.css';
 
@@ -7,7 +7,7 @@ export const NavBarDesktop = () => {
    
 
     return (
-        <nav className='relative navBarDesk-container bg-white bg-opacity-25 mt-8 flex p-4 md:flex-row justify-around z-20'>
+        <nav className='relative navBarDesk-container bg-white bg-opacity-25 mt-6 flex p-4 md:flex-row justify-around z-20'>
         <Link to="/">
         <div className='items-center hover:font-bold hover:text-Bleufonce'>
           Accueil

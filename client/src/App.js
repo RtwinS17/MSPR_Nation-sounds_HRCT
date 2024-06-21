@@ -46,37 +46,39 @@ const App = () => {
 
   return (
     <>
-      <div className='h-screen w-screen'>
+      <div className='w-screen appContainer flex flex-col'>
         <Router>
-        <Diaporamahome />
-        <HomeLogo />
+          <Diaporamahome />
+          <HomeLogo />
           {deviceUsed === 'mobile' ? <NavBarMobile /> : <NavBarDesktop />}
-          <Routes>
-            <Route path='/*' element={<Page404 />} />
-            <Route path="/" element={
-              <MainContent>
+          <MainContent>
+
+            <Routes>
+              <Route path='/*' element={<Page404 />} />
+              <Route path="/" element={
+
                 <HomeContent />
-              </MainContent>
-            } />
-            <Route path='/discover' element={<Discover />} />
-            <Route path='/discover/programmation' element={<Programmation />} />
-            <Route path='/discover/artists' element={<DetailsArtistesWP />} />
-            <Route path='infos-pratiques' element={<InfoPratiques deviceUsed={deviceUsed} />} />
-            <Route path='FAQ' element={<FaqComponent />} />
-            <Route path='alertes' element={<Alertes />} />
-            <Route path='contact' element={<Contact />} />
-            <Route path='partenaires' element={<PartenairesComponent />} />
-            <Route path='map' element={<Map />} />
-            <Route path='billetterie' element={<Billetterie />} />
-            <Route path='admin/programmation' element={<AdminProgrammation/>}/>
-            <Route path='admin/create_concert' element={<CreateConcert/>}/>
-            <Route path='admin/edit_concert' element={<EditConcert/>}/>
-            <Route path='playground' element={<Playground />} />
-            <Route path='conditions' element={<ConditionsPage />} />
-          </Routes>
+
+              } />
+              <Route path='/discover' element={<Discover />} />
+              <Route path='/discover/programmation' element={<Programmation />} />
+              <Route path='/discover/artists' element={<DetailsArtistesWP />} />
+              <Route path='infos-pratiques' element={<InfoPratiques deviceUsed={deviceUsed} />} />
+              <Route path='FAQ' element={<FaqComponent />} />
+              <Route path='alertes' element={<Alertes />} />
+              <Route path='contact' element={<Contact />} />
+              <Route path='partenaires' element={<PartenairesComponent />} />
+              <Route path='map' element={<Map />} />
+              <Route path='billetterie' element={<Billetterie />} />
+              <Route path='admin/programmation' element={<AdminProgrammation />} />
+              <Route path='admin/create_concert' element={<CreateConcert />} />
+              <Route path='admin/edit_concert' element={<EditConcert />} />
+              <Route path='conditions' element={<ConditionsPage />} />
+            </Routes>
+          </MainContent>
         </Router>
         <ThemeBtn />
-        <Footer />
+        {deviceUsed === 'mobile' ? <></> : <Footer />}
       </div>
     </>
   );

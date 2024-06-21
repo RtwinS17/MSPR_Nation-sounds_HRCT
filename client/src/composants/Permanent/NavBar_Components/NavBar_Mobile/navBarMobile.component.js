@@ -19,6 +19,8 @@ const NavBarMobile = () => {
   }
   return (
     <>
+    {isMenuOpen ? <div className='absolute h-full w-full z-20 bg-black opacity-95' onClick={() => closeMenu()}></div> : ''}
+    
       <div className='fixed flex justify-end w-[90%] pointer-events-none h-[50px] top-5 left-4 z-10'>
         
     
@@ -26,8 +28,9 @@ const NavBarMobile = () => {
           <BurgerIcon />
         </div>
       </div>
-      <div className={`flex flex-col fixed top-0 right-0 h-full ${isMenuOpen ? 'w-[50%]' : 'w-0'} z-10 transition-width rounded-l-3xl duration-500 ease-in-out navBarMob`}>
+      <div className={`flex flex-col fixed top-0 right-0 h-full ${isMenuOpen ? 'w-[70%]' : 'w-0'} z-50 transition-width rounded-l-3xl duration-500 ease-in-out navBarMob`}>
           <ul className='navBarMob-li '>
+          <li><Link onClick={() => closeMenu()} to="/">Accueil</Link></li>
           <li><Link onClick={() => closeMenu()} to="/billetterie">Billeterie</Link></li>
           <li><Link onClick={() => closeMenu()} to="/discover/programmation">Programmation</Link></li>
           <li><Link onClick={() => closeMenu()} to="/map">Carte</Link></li>

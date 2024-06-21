@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { postAdminConcert } from '../../../Service/adminAPI/adminAPI.service';
-import { MainContent } from '../../Permanent/homeCard.component';
 import { useNavigate } from 'react-router-dom';
 
 import './CreateConcert.style.css';
@@ -43,7 +42,7 @@ export const CreateConcert = () => {
     };
 
     return (
-        <MainContent>
+
             <form className="h-full flex flex-col justify-between gap-2 text-center CreateConcertContainer" onSubmit={handleSubmit}>
                 <label htmlFor="Groupe">Nom du Groupe:</label>
                 <input
@@ -105,6 +104,5 @@ export const CreateConcert = () => {
 
                 <button type="submit" className='btn-accent p-2'>Créer Concert</button>
             </form>
-        </MainContent>
     );
 };

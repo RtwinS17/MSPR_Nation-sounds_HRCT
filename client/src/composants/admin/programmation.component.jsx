@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useFetchAdminProgramme } from "../../Service/adminAPI/adminAPI.customHook";
 import {adminGroupConcertsByDay, adminFormatTime, adminFormatScene} from "../../Service/Admin_management/adminFormatProg.service";
-import { MainContent } from "../Permanent/homeCard.component";
 import { Loading } from '../Loading/Loading.component';
 import { Error } from '../Error/Error.component';
 import { Link } from 'react-router-dom';
@@ -28,7 +27,6 @@ export const AdminProgrammation = () => {
     }
 
     return (
-        <MainContent>
             <div className="h-full flex flex-col p-2 overflow-y-scroll">
                 <div className='w-full text-center mb-6'> <Link className='btn-accent p-2' to={"/admin/create_concert"}> Créer un concert </Link></div>
                 {Object.keys(concertsByDay).map(date => (
@@ -64,6 +62,5 @@ export const AdminProgrammation = () => {
                     </div>
                 ))}
             </div>
-        </MainContent>
     );
 };
