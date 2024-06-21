@@ -5,4 +5,5 @@
 
 .billetterieTitle {
     background-color: var(--main);
+    color: var(--main-text);
 }

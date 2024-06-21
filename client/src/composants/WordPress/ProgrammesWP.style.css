@@ -1,14 +1,14 @@
 .concertContainer {
-    background-color: var(--secondary-orange);
-    border-color: var(--white-0);
-    border-style: solid;
-    border-width: 0.2px;
+  background-color: var(--secondary-color-one);
+  border-color: var(--white-0);
+  border-style: solid;
+  border-width: 0.2px;
 }
 
 .concertTitle {
-    background-color: var(--main-dark);
+  background-color: var(--main-dark);
 }
 
 .concertArticle {
-    color: var(--black-text);
+  color: var(--black-text);
 }

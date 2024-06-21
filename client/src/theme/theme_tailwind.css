@@ -1,116 +1,51 @@
-    :root {
+:root {
+  --main-xDark: #02293c;
+  --main-dark: #023047;
+  --main: #061b2605;
+  --main-light: #13506eb8;
+  --main-xLight: #155d7f;
 
-        /* Opacity section */
-        --opacity-global: 1;
+  --main-border: #1f96b3;
 
-        /* Main section */
-        --main-xDark: #02293c;
-        --main-dark: #023047;
-        --main: #219ebc;
-        --main-light: #8ecae6;
-        --main-xLight: #9fd2ea;
+  /* Secondary section */
+  --secondary-color: #ffb703;
 
-        --main-border: #1f96b3;
+  --secondary-color-one-border: #ee7e00;
+  --secondary-color-border: #f5af00;
 
-        /* Secondary section */
-        --secondary-orange: #FB8500;
-        --secondary-yellow: #FFB703;
+  /* Text section */
+  --white-text: #fafafa;
+  --black-text: #0c0c0c;
+  --main-text: #0f415a;
+  --secondary-text: #d07e03;
+  --text-hover-accent: #d22f4f;
+}
 
-        --secondary-orange-border: #ee7e00;
-        --secondary-yellow-border: #f5af00;
+.dark-theme {
+  /* Opacity section */
+  --opacity-global: 0.55;
 
-        /* Text section */
-        --white-text: #fafafa;
-        --black-text: #0c0c0c;
-        --main-text: #0f415a;
-        --secondary-text: #fbab32;
-        --text-hover-accent: #D22F4F;
+  /* Main section */
+  --main-xDark: #02293c;
+  --main-dark: #011d2a;
+  --main: #011823;
+  --main-light: #0b384f;
+  --main-xLight: #15688e;
 
-        /* customWhite section */
-        --white-0: #fafafa;
-        --white-100: #f2f2f2;
-        --white-200: #ebebeb;
-        --white-300: #e3e3e3;
-        --white-400: #dcdcdc;
-        --white-500: #d4d4d4;
-        --white-600: #cdcdcd;
-        --white-700: #c5c5c5;
-        --white-800: #bebebe;
-        --white-900: #b6b6b6;
-        --white-950: #afafaf;
+  --main-border: #2f2f2f;
 
-        /* customBlack section */
-        --black-0: #0c0c0c;
-        --black-100: #131313;
-        --black-200: #1b1b1b;
-        --black-300: #222222;
-        --black-400: #292929;
-        --black-500: #303030;
-        --black-600: #383838;
-        --black-700: #3f3f3f;
-        --black-800: #464646;
-        --black-900: #4e4e4e;
-        --black-950: #555555;
+  /* Secondary section */
+  --secondary-color-one: #02293c;
+  --secondary-color: #956d07;
 
-        --black-border: #292929;
-    }
+  --secondary--color-border: #ee7e00;
 
-    .dark-theme {
-        /* Opacity section */
-        --opacity-global: 0.55;
+  /* Text section */
+  --main-text-dark: #cecaba;
 
-        /* Main section */
-        --main-xDark: #0c0c0c;
-        --main-dark: #181818;
-        --main: #242424;
-        --main-light: #303030;
-        --main-xLight: #3d3d3d;
-
-        --main-border: #2f2f2f;
-
-        /* Secondary section */
-        --secondary-orange: #ab5d04;
-        --secondary-yellow: #956d07;
-
-        --secondary--orange-border: #ee7e00;
-        --secondary-yellow-border: #f5af00;
-
-        /* Text section */
-        --main-text-dark: #CECABA;
-
-        --white-text: var(--main-text-dark);
-        --black-text: var(--main-text-dark);
-        --main-text: var(--main-text-dark);
-        --secondary-text: var(--main-text-dark);
-        --text-hover-accent: #721a2c;
-
-
-        /* customWhite section */
-        --white-0: #0c0c0c;
-        --white-100: #131313;
-        --white-200: #1b1b1b;
-        --white-300: #222222;
-        --white-400: #292929;
-        --white-500: #303030;
-        --white-600: #383838;
-        --white-700: #3f3f3f;
-        --white-800: #464646;
-        --white-900: #4e4e4e;
-        --white-950: #555555;
-
-        /* customBlack section */
-        --black-0: #0c0c0c;
-        --black-100: #131313;
-        --black-200: #1b1b1b;
-        --black-300: #222222;
-        --black-400: #292929;
-        --black-500: #303030;
-        --black-600: #383838;
-        --black-700: #3f3f3f;
-        --black-800: #464646;
-        --black-900: #4e4e4e;
-        --black-950: #555555;
-
-        --black-border: #292929;
-
-    }
+  --white-text: var(--main-text-dark);
+  --black-text: var(--main-text-dark);
+  --main-text: var(--main-text-dark);
+  --secondary-text: var(--main-text-dark);
+  --text-hover-accent: #721a2c;
+}

@@ -8,24 +8,19 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        
-        Bleuclair : "#8ECAE6",
-        Bleu : "#219EBC",
-        Bleufonce : "#023047",
-        Jaune : "#FFB703",
-        Orange : "#FB8500",
-      
+        Bleuclair: '#8ECAE6',
+        Bleu: '#219EBC',
+        Bleufonce: '#023047',
+        Jaune: '#FFB703',
+        Orange: '#FB8500',
 
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      },
+        backgroundImage: {
+          'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+          'gradient-conic':
+            'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        },
 
-      
-      
-      
-          main: {
+        main: {
           xDark: 'var(--main-xDark)',
           dark: 'var(--main-dark)',
           DEFAULT: 'var(--main)',
@@ -37,12 +32,12 @@ module.exports = {
         },
 
         secondary: {
-          orange : {
-            DEFAULT: 'var(--secondary-orange)',
-            border: 'var(--secondary-orange-border)',
+          orange: {
+            DEFAULT: 'var(--secondary-color-one)',
+            border: 'var(--secondary-color-one-border)',
           },
           yellow: {
-            DEFAULT: 'var(--secondary-yellow)',
+            DEFAULT: 'var(--secondary-color)',
             border: 'var(--secondary-border)',
           },
           text: 'var(--secondary-text)',
@@ -74,9 +69,9 @@ module.exports = {
           800: 'var(--black-800)',
           900: 'var(--black-900)',
           950: 'var(--black-950)',
-        }
-      }
+        },
+      },
     },
   },
   plugins: [],
-}
+};

@@ -1,20 +1,24 @@
 .artistes-card-title {
-    color: var(--secondary-orange);
-  }
-  
-  .artistes-card-gradient {
-      background-image: linear-gradient(to right, var(--main), var(--secondary-yellow), var(--secondary-orange));
-  }
-  
+  color: var(--secondary-color-one);
+}
 
-  .artistes-card-name {
-    color: var(--white-100);
-  }
+.artistes-card-gradient {
+  background-image: linear-gradient(
+    to right,
+    var(--main),
+    var(--secondary-color),
+    var(--secondary-color-one)
+  );
+}
 
-  .card {
-    display: flex;
-    flex-direction: column;
-    border: solid 2px;
-    border-radius: 0 2rem 2rem 0;
-    width: 100%;
+.artistes-card-name {
+  color: var(--white-100);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border: solid 2px;
+  border-radius: 0 2rem 2rem 0;
+  width: 100%;
 }

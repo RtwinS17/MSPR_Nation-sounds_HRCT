@@ -15,7 +15,7 @@ const textDiscover = {
 export const HomeContent = () => {
     return (
         <>
-            <div className="h-full flex flex-col gap-3 overflow-y-auto">
+            <div className="h-full flex flex-col overflow-y-auto">
             
                     <DiscoverCards title="AIDES ET QUESTIONS" text={textDiscover.Question} linkTo="/infos-pratiques" imageSrc={DiscoverImage} />
             

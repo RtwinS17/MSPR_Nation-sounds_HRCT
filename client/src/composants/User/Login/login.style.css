@@ -1,22 +1,21 @@
 .loginMain-container {
-    margin: auto;
+  margin: auto;
 }
 
 hr {
-    border-top: 1px solid black;
-    width: 60%;
+  border-top: 1px solid black;
+  width: 60%;
 }
 
 .login-container {
-    background: var(--secondary-orange);
-    max-width: 450px;
-
+  background: var(--secondary-color-one);
+  max-width: 450px;
 }
 
 .miniMap-container {
-    background: var(--white-0);
+  background: var(--white-0);
 }
 
 h2 {
-    color: var(--main-text);
+  color: var(--main-text);
 }

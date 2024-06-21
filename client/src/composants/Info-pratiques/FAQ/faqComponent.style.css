@@ -9,7 +9,7 @@
   -moz-transition: 0.4s ease;
   -o-transition: 0.4s ease;
   transition: 0.4s ease;
-  background-color: #f2eded96;
+  background-color: #95939322;
 }
 
 .panel:checked ~ .panel-content {

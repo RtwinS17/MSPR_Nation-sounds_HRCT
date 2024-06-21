@@ -27,9 +27,9 @@ const PartenairesComponent = () => {
     const Partenaire = ({ id, nom, logo, lien, desc }) => {
         return (
             <a href={lien} target="_blank" rel="noreferrer" className="">
-                <div className="border bg-white flex flex-col md:flex-row items-center justify-center md:justify-start rounded-xl p-4 hover:shadow-inner hover:shadow-slate-800 w-full">
+                <div className="border bg-white text-gray-800 flex flex-col md:flex-row items-center justify-center md:justify-start rounded-xl p-4 hover:shadow-inner hover:shadow-slate-800 w-full">
                 
-                    <img src={logo} alt="photo" className="w-32 h-32 object-scale-down" />
+                    <img src={logo} alt="logo" className="w-32 h-32 object-scale-down" />
                 
                 <div className="flex flex-col items-center w-full md:w-auto text-center md:text-left md:items-start md:px-4">
                     <p className="font-bold text-xl">{nom}</p>

@@ -14,7 +14,7 @@ export const DiscoverCards = ({ title = "Titre à ajouter", linkText = "En savoi
                 </div>
 
             </div>
-            <div className="h-full sm:max-w-[50%] hidden sm:block"><img src={imageSrc} /> </div>
+            <div className="h-full sm:max-w-[50%] hidden sm:block"><img src={imageSrc} alt="festival photography" /> </div>
         </div>
 
     )
