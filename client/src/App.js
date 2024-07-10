@@ -11,7 +11,7 @@ import { NavBarDesktop } from './composants/Permanent/NavBar_Components/NavBar_D
 import { Page404 } from './composants/404/Page404.component';
 import { Discover } from './composants/Discover/Discover.component';
 import { Programmation } from './composants/Discover/Programmation/Programmation.component';
-import { ArtistCard } from './composants/Discover/Artistes/artistCard.component';
+import ArtistCard from './composants/Discover/Artistes/artistCard.component';
 import { InfoPratiques } from './composants/Info-pratiques/infoPratique.component';
 import FaqComponent from './composants/Info-pratiques/FAQ/FaqComponent';
 import { Alertes } from './composants/Info-pratiques/Alertes/Alertes.component';
@@ -23,7 +23,7 @@ import { Playground } from './composants/Playground/Playground.component';
 import { AdminProgrammation } from './composants/admin/programmation.component';
 import { CreateConcert } from './composants/admin/Management/CreateConcert.component';
 import { EditConcert } from './composants/admin/Management/EditConcert.component';
-
+import ArtistList from './composants/Discover/Artistes/ArtistList';
 import Footer from './composants/Permanent/Footer/footer';
 import ConditionsPage from './composants/WordPress/CondGenWP';
 import DetailsArtistesWP from './composants/WordPress/DetailArtistesWP';
@@ -50,6 +50,7 @@ const App = () => {
         <Router>
         <Diaporamahome />
         <HomeLogo />
+        
           {deviceUsed === 'mobile' ? <NavBarMobile /> : <NavBarDesktop />}
           <Routes>
             <Route path='/*' element={<Page404 />} />
@@ -59,7 +60,7 @@ const App = () => {
               </MainContent>
             } />
             <Route path='/discover' element={<Discover />} />
-            <Route path='/discover/programmation' element={<Programmation />} />
+            <Route path='/discover/programmation' element={<ArtistList />} />
             <Route path='/discover/artists' element={<DetailsArtistesWP />} />
             <Route path='infos-pratiques' element={<InfoPratiques deviceUsed={deviceUsed} />} />
             <Route path='FAQ' element={<FaqComponent />} />

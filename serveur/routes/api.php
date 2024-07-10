@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ConcertController;
+use App\Http\Controllers\ArtistController;
 
 // Route pour récupérer tous les concerts
 Route::get('/concerts', [ConcertController::class, 'index']);
@@ -17,6 +18,9 @@ Route::put('/concerts/{id}', [ConcertController::class, 'update']);
 
 // Route pour supprimer un concert existant
 Route::delete('/concerts/{id}', [ConcertController::class, 'destroy']);
+
+// Route pour récupérer tous les artistes
+Route::get('/artists', [ArtistController::class, 'index']);
 
 // Autres routes...
 

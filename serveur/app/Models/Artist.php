@@ -11,5 +11,10 @@ class Artist extends Model
 
     protected $table = 'artists'; // Assurez-vous que c'est le nom correct de la table
 
-    protected $fillable = ['nom_groupe', 'type_musique'];
+    protected $fillable = [
+        'nom_groupe',
+        'type_musique',
+        'photo',
+        'description',
+    ];
 }

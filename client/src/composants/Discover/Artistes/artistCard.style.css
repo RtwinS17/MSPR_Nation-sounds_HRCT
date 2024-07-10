@@ -1,20 +1,33 @@
-.artistes-card-title {
-    color: var(--secondary-orange);
-  }
-  
-  .artistes-card-gradient {
-      background-image: linear-gradient(to right, var(--main), var(--secondary-yellow), var(--secondary-orange));
-  }
-  
+.artist-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  padding: 1rem;
+}
 
-  .artistes-card-name {
-    color: var(--white-100);
-  }
+.card {
+  width: 20rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
 
-  .card {
-    display: flex;
-    flex-direction: column;
-    border: solid 2px;
-    border-radius: 0 2rem 2rem 0;
-    width: 100%;
+.card-img-top {
+  width: auto;
+  height: 66%;
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  
+}
+
+.card-text {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
 }
