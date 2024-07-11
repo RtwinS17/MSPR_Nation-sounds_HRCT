@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom';
 
 const FaqComponent = () => {
   return (
-      <section className='h-full flex flex-col gap-3 overflow-y-auto'>
-        <div className='p-6 sm:p-8 lg:pl-20 bg-gray-300 text-gray-800'>
+      <section className='faqstyle h-full flex flex-col gap-3 overflow-y-auto'>
+        <div className='p-6 sm:p-8 lg:pl-20'>
           <div className='text-left'>
-            <h1 className='m-4 pb-4 sm:m-8 font-extrabold text-4xl text-gray-800'>
+            <h1 className='m-4 pb-4 sm:m-8 font-extrabold text-3xl'>
               <span>❓</span>
               FAQ
             </h1>

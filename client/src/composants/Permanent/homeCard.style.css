@@ -1,6 +1,6 @@
 .mainContent-container {
   width: 85%;
-  height: 70%;
+  height: auto;
   background-color: var(--main-xDark);
   box-shadow: 7px 5px 12px 3px var(--black-0);
   padding: 2rem;

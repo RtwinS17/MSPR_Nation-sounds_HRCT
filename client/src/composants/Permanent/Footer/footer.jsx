@@ -4,7 +4,7 @@ import { faFacebook, faTwitter, faInstagram, faLinkedin, faXTwitter } from '@for
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-white py-2">
+    <footer className="bg-gray-800 text-stone-300 py-2">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between">
           {/* Première partie */}
@@ -27,10 +27,10 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-4">Follow Us</h4>
             <div className='flex flex-col'>
               <div className="flex space-x-4">
-                <a href="#" className="hover:text-gray-400"><FontAwesomeIcon icon={faFacebook} /> </a>
-                <a href="#" className="hover:text-gray-400"><FontAwesomeIcon icon={faXTwitter} /></a>
-                <a href="#" className="hover:text-gray-400"><FontAwesomeIcon icon={faInstagram} /></a>
-                <a href="#" className="hover:text-gray-400"><FontAwesomeIcon icon={faLinkedin} /></a>
+                <a href="https://www.facebook.com" className="hover:text-gray-400"><FontAwesomeIcon icon={faFacebook} /> </a>
+                <a href="https://www.x.com" className="hover:text-gray-400"><FontAwesomeIcon icon={faXTwitter} /></a>
+                <a href="https://www.instagram.com" className="hover:text-gray-400"><FontAwesomeIcon icon={faInstagram} /></a>
+                <a href="https://www.linkedin.com" className="hover:text-gray-400"><FontAwesomeIcon icon={faLinkedin} /></a>
               </div>
               
                 <p className='mt-4 text-sm'>&copy; 2024 HRCT. All rights reserved.</p>

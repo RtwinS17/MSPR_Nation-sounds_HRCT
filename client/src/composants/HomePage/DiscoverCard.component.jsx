@@ -10,7 +10,7 @@ export const DiscoverCards = ({ title = "Titre à ajouter", linkText = "En savoi
             <div className="flex flex-col shrink justify-around h-full sm:w-[50%] ">
                 <h3 className="font-bold text-xl text-center cardDiscoverTitle p-2"> {title} </h3>
                 <div className="flex justify-center">
-                    <Link className="text-center p-3 btn-primary" to={linkTo}>{linkText}</Link>
+                    <Link className="text-center py-2 px-4 btn-primary" to={linkTo}>{linkText}</Link>
                 </div>
 
             </div>

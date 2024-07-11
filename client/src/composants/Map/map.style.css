@@ -3,7 +3,7 @@
 /* Taille de la Map  */
 
 .leaflet-container {
-  height: 400px;
+  height: 100vh;
   width: auto;
   z-index: 0;
 }
@@ -30,7 +30,7 @@
 
 #filter {
   margin: 0 15px;
-  top: 340px;
+  top: 300px;
   position: relative;
   border-radius: 3px;
   background: white;
@@ -40,10 +40,11 @@
 }
 
 #filter:hover {
-  background-color: rgba(255, 255, 255, 0.842);
+  background-color: rgba(255, 255, 255, 0.842);  
 }
 
 #map-filter-container {
+  top: 30%;
   position: absolute;
   z-index: 2;
   height: 0;
