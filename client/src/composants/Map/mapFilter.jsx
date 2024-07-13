@@ -27,7 +27,7 @@ const MapFilter = ({
           onClick={toggleCheckboxes}
         />
         {showCheckboxes && (
-          <div className="grid-cols-1 bg-white/75 p-2 ml-4 mt-14">
+          <div className="grid-cols-1 bg-white/75 p-2 ml-4 mt-8">
             <p className="font-bold mb-1">Filtrer</p>
             <label className="flex items-baseline mr-2 cursor-pointer">
               <input

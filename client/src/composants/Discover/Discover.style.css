@@ -1,5 +1,6 @@
 .discoverContainer {
   background-color: var(--secondary-color-one);
+  color: var(--white-text);
 }
 
 .discoverContainer article {

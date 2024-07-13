@@ -4,6 +4,7 @@
   --main: #061b2605;
   --main-light: #13506eb8;
   --main-xLight: #155d7f;
+  --main-clear: #e8e6e6;
 
   --main-border: #1f96b3;
 
@@ -14,7 +15,7 @@
   --secondary-color-border: #f5af00;
 
   /* Text section */
-  --white-text: #fafafa;
+  --white-text: #cbccd0;
   --black-text: #0c0c0c;
   --main-text: #0f415a;
   --secondary-text: #d07e03;
@@ -31,6 +32,7 @@
   --main: #011823;
   --main-light: #0b384f;
   --main-xLight: #15688e;
+  --main-clear: #02293c;
 
   --main-border: #2f2f2f;
 

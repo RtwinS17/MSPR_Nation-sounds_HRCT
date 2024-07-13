@@ -39,7 +39,7 @@ export const Discover = () => {
                         })}
                     </section>
                     <div className="text-end p-2">
-                        <Link to="./programmation" className="p-2 btn-accent"> Voir tout </Link>
+                        <Link to="./programmation" className="p-2 btn-primary"> Voir tout </Link>
                     </div>
                 </article>
                 <article>
@@ -57,7 +57,7 @@ export const Discover = () => {
                         })}
                     </section>
                     <div className="text-end p-2">
-                        <Link to='./artists' className="p-2 btn-accent"> Voir tout </Link>
+                        <Link to='./artists' className="p-2 btn-primary"> Voir tout </Link>
                     </div>
                 </article>
             </div>

@@ -6,3 +6,7 @@
     var(--secondary-color-one)
   );
 }
+
+.partenaires-style {
+  background-color: var(--main-clear);
+}

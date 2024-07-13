@@ -4,7 +4,7 @@ import partenairesListe from "./partenairesListe";
 
 const PartenairesComponent = () => {
     return (
-            <section className= " h-full grid grid-cols-1 gap-4 p-2 overflow-y-auto [&>*]:h-full [&>*]:flex [&>*]:flex-col [&>*]:justify-between [&>*]:gap-4">
+            <section className= "h-full grid grid-cols-1 gap-4 p-2 overflow-y-auto [&>*]:h-full [&>*]:flex [&>*]:flex-col [&>*]:justify-between [&>*]:gap-4">
         <div className="text-left">
             <h1 className="mb-6 font-extrabold text-4xl">Partenaires</h1>
             <div className="grid grid-cols-1 gap-4">
@@ -26,8 +26,8 @@ const PartenairesComponent = () => {
 
     const Partenaire = ({ id, nom, logo, lien, desc }) => {
         return (
-            <a href={lien} target="_blank" rel="noreferrer" className="">
-                <div className="border bg-white text-gray-800 flex flex-col md:flex-row items-center justify-center md:justify-start rounded-xl p-4 hover:shadow-inner hover:shadow-slate-800 w-full">
+            <a href={lien} target="_blank" rel="noreferrer" className="partenaires-style rounded-xl">
+                <div className="border flex flex-col md:flex-row items-center justify-center md:justify-start rounded-xl p-4 hover:shadow-inner hover:shadow-slate-800 w-full">
                 
                     <img src={logo} alt="logo" className="w-32 h-32 object-scale-down" />
                 
