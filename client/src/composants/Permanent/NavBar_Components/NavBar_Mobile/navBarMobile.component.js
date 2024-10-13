@@ -28,8 +28,8 @@ const NavBarMobile = () => {
           <BurgerIcon />
         </div>
       </div>
-      <div className={`flex flex-col fixed top-0 right-0 h-full ${isMenuOpen ? 'w-[70%]' : 'w-0'} z-50 transition-width rounded-l-3xl duration-500 ease-in-out navBarMob`}>
-          <ul className='navBarMob-li '>
+      <div className={`flex flex-col text-white fixed top-0 right-0 h-full ${isMenuOpen ? 'w-[70%]' : 'w-0'} z-50 transition-width rounded-l-3xl duration-500 ease-in-out navBarMob`}>
+          <ul className='navBarMob-li  '>
           <li><Link onClick={() => closeMenu()} to="/">Accueil</Link></li>
           <li><Link onClick={() => closeMenu()} to="/billetterie">Billeterie</Link></li>
           <li><Link onClick={() => closeMenu()} to="/discover/programmation">Programmation</Link></li>

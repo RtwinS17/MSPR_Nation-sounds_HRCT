@@ -15,16 +15,11 @@ const textDiscover = {
 export const HomeContent = () => {
     return (
         <>
-            <div className="h-full flex flex-col overflow-y-auto">
-            
-                    <DiscoverCards title="AIDES ET QUESTIONS" text={textDiscover.Question} linkTo="/infos-pratiques" imageSrc={DiscoverImage} />
-            
-           
-                    <DiscoverCards title="PROGRAMMATION" text={textDiscover.Programmation} linkText="Découvrir notre festival" linkTo="/discover" imageSrc={ProgrammationImage} />
-              
-              
-                    <DiscoverCards title="BILLETTERIE" text={textDiscover.Billetterie} linkText="Acheter un billet" linkTo="/billetterie" imageSrc={BilletterieImage} />
-           
+            <div className="h-full flex flex-col space-y-8 overflow-y-auto p-4 sm:p-8">
+                
+                <DiscoverCards title="PROGRAMMATION" text={textDiscover.Programmation} linkText="Découvrir notre festival" linkTo="/discover" imageSrc={ProgrammationImage} />
+                <DiscoverCards title="BILLETTERIE" text={textDiscover.Billetterie} linkText="Acheter un billet" linkTo="/billetterie" imageSrc={BilletterieImage} />
+                <DiscoverCards title="AIDES ET QUESTIONS" text={textDiscover.Question} linkText="En savoir plus" linkTo="/infos-pratiques" imageSrc={DiscoverImage} />
             </div>
         </>
     );

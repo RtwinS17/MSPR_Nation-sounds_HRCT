@@ -1,47 +1,69 @@
-import React from "react";
-import "./partenairesComponent.style.css";
-import partenairesListe from "./partenairesListe";
+import React, { useState, useEffect } from 'react';
 
-const PartenairesComponent = () => {
-    return (
-            <section className= "h-full grid grid-cols-1 gap-4 p-2 overflow-y-auto [&>*]:h-full [&>*]:flex [&>*]:flex-col [&>*]:justify-between [&>*]:gap-4">
-        <div className="text-left">
-            <h1 className="mb-6 font-extrabold text-4xl">Partenaires</h1>
-            <div className="grid grid-cols-1 gap-4">
-            {partenairesListe.map((partenaire) => (
-                <Partenaire
-                key={partenaire.id}
-                id={partenaire.id}
-                nom={partenaire.nom}
-                logo={partenaire.logo}
-                desc={partenaire.desc}
-                lien={partenaire.lien}
-                />
-            ))}
-            </div>
-        </div>
-        </section>
-    );
-    }
+const Partenaires = () => {
+  const [partenaires, setPartenaires] = useState([]);
+  const [images, setImages] = useState({});
+  const categoryId = '8'; // ID de la catégorie Partenaires
 
-    const Partenaire = ({ id, nom, logo, lien, desc }) => {
-        return (
-            <a href={lien} target="_blank" rel="noreferrer" className="partenaires-style rounded-xl">
-                <div className="border flex flex-col md:flex-row items-center justify-center md:justify-start rounded-xl p-4 hover:shadow-inner hover:shadow-slate-800 w-full">
-                
-                    <img src={logo} alt="logo" className="w-32 h-32 object-scale-down" />
-                
-                <div className="flex flex-col items-center w-full md:w-auto text-center md:text-left md:items-start md:px-4">
-                    <p className="font-bold text-xl">{nom}</p>
-                    <p className="hidden md:block">{desc}</p>
-                </div>
-                
-            </div>
+  useEffect(() => {
+    // Récupérer les partenaires
+    fetch(`https://nationsounds.online/wp-json/wp/v2/posts?categories=${categoryId}`)
+      .then(response => response.json())
+      .then(data => {
+        setPartenaires(data);
+
+        // Pour chaque partenaire, récupérer l'image associée
+        const imagePromises = data.map(partenaire => {
+          const imageId = partenaire.acf.logo;
+          if (imageId) {
+            return fetch(`http://nationsounds.online/wp-json/wp/v2/media/${imageId}`)
+              .then(response => response.json())
+              .then(imageData => ({
+                id: partenaire.id,
+                url: imageData.source_url
+              }));
+          }
+          return null;
+        });
+
+        // Attendre que toutes les images soient récupérées
+        Promise.all(imagePromises).then(imagesData => {
+          const imagesMap = imagesData.reduce((acc, img) => {
+            if (img) {
+              acc[img.id] = img.url;
+            }
+            return acc;
+          }, {});
+          setImages(imagesMap);
+        });
+      })
+      .catch(error => console.error('Erreur lors de la récupération des partenaires:', error));
+  }, [categoryId]);
+
+  return (
+    <div className="container mx-auto p-8">
+      <h1 className="text-3xl font-extrabold mb-6 text-center">Nos Partenaires</h1>
+      <div className="grid grid-cols-1 gap-6">
+        {partenaires.map(partenaire => (
+          <div key={partenaire.id} className="flex items-center space-x-4 p-6  shadow-md rounded-lg">
+            {/* Logo du partenaire avec lien */}
+            <a href={partenaire.acf.lien} target="_blank" rel="noopener noreferrer">
+              <img 
+                src={images[partenaire.id] || partenaire.acf.logo} // Utiliser l'image récupérée ou le logo ACF si disponible
+                alt={partenaire.acf.nom} 
+                className="w-24 h-24 object-contain"
+              />
             </a>
-        );
-    }
-    
 
+            {/* Nom et description à droite */}
+            <div className="flex flex-col">
+                <h2 className="text-xl font-semibold text-Orange">{partenaire.acf.nom}</h2>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
-export default PartenairesComponent;
-
+export default Partenaires;
