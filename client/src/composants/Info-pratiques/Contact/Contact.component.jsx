@@ -46,7 +46,7 @@ export const Contact = () => {
 
     return (
 
-            <div className="h-full flex flex-col gap-2 py-2 px-12">
+            <div className="h-full flex flex-col gap-2 py-2 px-6 md:px-24">
                 <h1 className="text-2xl font-bold mb-2">Contactez-nous</h1>
                 <form onSubmit={handleSubmit} className="h-full flex flex-col gap-4 text-center contactForm">
                     <div>
@@ -88,8 +88,8 @@ export const Contact = () => {
                             className="w-full p-2 border rounded-md grow"
                         ></textarea>
                     </div>
-
-                    <button type="submit" className="btn-accent p-2">Envoyer</button>
+                    <div className="flex items-center justify-center"><button type="submit" className="flex items-center justify-center btn-accent w-1/2 p-2">Envoyer</button></div>
+                    
                 </form>
             </div>
     );

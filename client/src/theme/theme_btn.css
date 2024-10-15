@@ -58,10 +58,10 @@
         --btn-danger-text: #0c0c0c;
 
         /* BTN accent */
-        --btn-accent-bg: #D22F4F;
-        --btn-accent-border: #c92b4a;
+        --btn-accent-bg: #FFB703;
+        --btn-accent-border: #FFB703;
         /* d5% bg */
-        --btn-accent-bg-hover: #da526d;
+        --btn-accent-bg-hover: #ffb803bb;
         /* l17% bg */
         --btn-accent-border-hover: #d84965;
         /* l17% border */
