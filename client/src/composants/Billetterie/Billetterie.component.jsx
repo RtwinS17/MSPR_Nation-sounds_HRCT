@@ -8,7 +8,7 @@ export const Billetterie = () => {
             <div className="h-full flex flex-col justify-around text-center">
                 <h1 className="text-4xl p-4 rounded-3xl billetterieTitle"> Billeterie et tarifs </h1>
                 <div>
-                    <Link to='https://www.billetweb.fr/nation-sounds' className='btn-secondary p-4'> Je réserve mon billet</Link>
+                    <Link to='https://www.billetweb.fr/nation-sounds' className='btn-secondary bg-Jaune p-4'> Je réserve mon billet</Link>
                 </div>
                 <section className="text-start p-4 rounded-lg priceContainer">
                     <ul > 
