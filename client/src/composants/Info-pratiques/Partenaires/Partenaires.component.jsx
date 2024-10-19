@@ -45,19 +45,20 @@ const Partenaires = () => {
       <h1 className="text-3xl font-extrabold mb-6 text-center">Nos Partenaires</h1>
       <div className="grid grid-cols-1 gap-6">
         {partenaires.map(partenaire => (
-          <div key={partenaire.id} className="flex items-center space-x-4 p-6  shadow-md rounded-lg">
+          <div key={partenaire.id} className="flex items-center space-x-4 p-6 shadow-md rounded-lg">
             {/* Logo du partenaire avec lien */}
             <a href={partenaire.acf.lien} target="_blank" rel="noopener noreferrer">
               <img 
                 src={images[partenaire.id] || partenaire.acf.logo} // Utiliser l'image récupérée ou le logo ACF si disponible
                 alt={partenaire.acf.nom} 
-                className="w-24 h-24 object-contain"
+                className="w-24 h-24 object-contain bg-white rounded-lg" // Fixer la taille des images
               />
             </a>
 
             {/* Nom et description à droite */}
             <div className="flex flex-col">
-                <h2 className="text-xl font-semibold text-Orange">{partenaire.acf.nom}</h2>
+              <h2 className="text-xl font-semibold text-Orange">{partenaire.acf.nom}</h2>
+              <p className="invisible md:visible text-white">{partenaire.acf.description}</p>
             </div>
           </div>
         ))}
